@@ -1,0 +1,46 @@
+# Dependensi
+node_modules/
+
+# Hasil build
+dist/
+
+# Variabel lingkungan (berisi kunci, JANGAN masuk Git)
+.env
+.env.*
+!.env.example
+
+# Data siswa (daftar untuk buat-siswa.js) tidak boleh masuk Git
+*.csv
+*.xlsx
+*.xls
+*.ods
+
+# Dokumen referensi dan data wawancara penelitian (AGENTS.md bagian 3): tetap di folder, tidak masuk Git
+referensi/
+
+# Kunci privat dan sertifikat
+*.pem
+*.key
+
+# Cadangan lokal sebelum perubahan besar (misalnya rebranding Lanora)
+cadangan/
+
+# Supabase CLI lokal
+supabase/.temp/
+supabase/.branches/
+
+# Log dan cache
+*.log
+npm-debug.log*
+.vite/
+coverage/
+
+# Editor dan sistem operasi
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local Netlify folder
+.netlify

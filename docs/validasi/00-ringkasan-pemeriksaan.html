@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>00 · Ringkasan Pemeriksaan dan Lembar Persetujuan — Paket Validasi Lanora (DRAF)</title><style>
+  :root { --utama:#17784f; --tua:#0f3d2e; --muda:#e2f4ea; --garis:#c9ddd1; --redup:#4c6359; --salah:#b3412e; --benar:#1f7a45; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 11pt/1.5 system-ui, 'Segoe UI', Roboto, sans-serif; color: #12372a; background: #fff; }
+  .lembar { max-width: 190mm; margin: 0 auto; padding: 12mm 10mm 16mm; }
+  .draf { position: sticky; top: 0; z-index: 5; background: #fff6d6; border: 2px solid #b8860b; color: #5c4300; padding: 6px 10px; font-weight: 700; text-align: center; margin-bottom: 12px; }
+  h1 { font-size: 20pt; margin: 0 0 4px; color: var(--tua); }
+  h2 { font-size: 15pt; margin: 22px 0 8px; color: var(--tua); border-bottom: 2px solid var(--muda); padding-bottom: 4px; page-break-after: avoid; }
+  h3 { font-size: 12pt; margin: 14px 0 6px; color: var(--tua); page-break-after: avoid; }
+  p { margin: 4px 0; }
+  .ket { color: var(--redup); font-size: 9.5pt; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 10pt; }
+  th, td { border: 1px solid var(--garis); padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: var(--muda); }
+  .kartu { border: 1px solid var(--garis); border-radius: 8px; padding: 8px 10px; margin: 10px 0; page-break-inside: avoid; }
+  .soal { border-left: 4px solid var(--utama); }
+  .kotak { background: #f3f8f5; border-radius: 6px; padding: 6px 8px; margin: 4px 0; }
+  .rumus { background: var(--muda); border-radius: 6px; padding: 6px 8px; font-weight: 600; }
+  .label { display: inline-block; border: 1px solid var(--garis); border-radius: 999px; padding: 0 8px; font-size: 9pt; margin-right: 4px; background: #fff; }
+  .kunci { color: var(--benar); font-weight: 700; }
+  .salah { color: var(--salah); }
+  .cek { font-size: 9pt; color: var(--redup); }
+  .cek .ok::before { content: '✓ '; color: var(--benar); font-weight: 700; }
+  .cek .tidak::before { content: '✕ '; color: var(--salah); font-weight: 700; }
+  .periksa { margin-top: 6px; border-top: 1px dashed var(--garis); padding-top: 6px; font-size: 10pt; }
+  .periksa .garis { display: block; border-bottom: 1px solid #999; height: 20px; margin-top: 2px; }
+  .temuan-Tinggi { background: #fdeceb; } .temuan-Sedang { background: #fff4dc; } .temuan-Rendah { background: #f3f8f5; }
+  ol.langkah { margin: 4px 0; padding-left: 20px; } ol.langkah li { margin: 2px 0; }
+  .daftar-isi a { color: var(--utama); }
+  @page { size: A4; margin: 12mm 10mm; }
+  @media print { .draf { position: static; } a { color: inherit; text-decoration: none; } .lembar { padding: 0; } }
+</style></head>
+<body><div class="lembar">
+<div class="draf">DRAF — belum disetujui dosen/guru. Jangan dipakai untuk siswa sebelum ada persetujuan.</div>
+<h1>00 · Ringkasan Pemeriksaan dan Lembar Persetujuan</h1>
+<p class="ket">Paket validasi Lanora · Bunga Tunggal dan Tabungan · SMP kelas VIII · disusun 13 November 2026 · dibuat otomatis dari kode (scripts/buat-paket-validasi.mjs), sehingga isinya sama persis dengan yang akan dipakai aplikasi.</p>
+
+    <h2>Isi paket</h2>
+    <table><tr><th>Dokumen</th><th>Isi</th></tr>
+      <tr><td>01-materi.html</td><td>Materi P0 dan M1–M6: 28 kartu, 10 contoh, 7 soal Coba Sendiri</td></tr>
+      <tr><td>02-soal-latihan.html</td><td>60 soal latihan isian, dengan kunci, cara perhitungan, pembahasan, 3 petunjuk, dan jawaban salah yang dikenali</td></tr>
+      <tr><td>03-soal-kuis.html</td><td>40 soal kuis, kisi-kisi KF-21, kecukupan per kombinasi, opsi beserta alasan kunci dan pengecoh</td></tr></table>
+    <p><strong>Status: DRAF.</strong> Seluruh materi dan soal belum boleh dipakai siswa sampai lembar persetujuan di bawah ditandatangani. Bank soal belum dimasukkan ke database.</p>
+
+    <h2>Hasil pemeriksaan otomatis</h2>
+    <table><tr><th>Pemeriksaan</th><th>Hasil</th></tr>
+      <tr><td>Kunci jawaban dihitung ulang dari data soal (rumus B = M × (p/100) × t, A = M + B, dan rumus invers M5)</td><td class="kunci">94 dari 94 cocok</td></tr>
+      <tr><td>Hitung ulang independen (aritmetika terpisah dari kode aplikasi, dijalankan saat menyusun paket ini)</td><td class="kunci">94 dari 94 cocok; teks setiap soal memuat semua data yang dibutuhkan</td></tr>
+      <tr><td>Satuan waktu: bulan ÷ 12 dan hari ÷ 365 langsung ke tahun (KF-02)</td><td class="kunci">Sesuai di semua soal dan pembahasan</td></tr>
+      <tr><td>Kunci rapi dan toleransi sesuai satuan (KF-19)</td><td class="kunci">Sesuai</td></tr>
+      <tr><td>Petunjuk latihan tepat 3 dan tidak memuat jawaban akhir (KF-15)</td><td class="kunci">Sesuai</td></tr>
+      <tr><td>Yang ditanya sesuai indikator sub-bab / kategori kisi-kisi</td><td class="kunci">Sesuai</td></tr>
+      <tr><td>Kecukupan bank kuis per kombinasi KF-21 / KF-14</td><td class="kunci">17 dari 17 cukup (tepat minimum)</td></tr>
+      <tr><td>Jumlah butir pemeriksaan otomatis per soal yang gagal</td><td class="kunci">0 dari 652</td></tr></table>
+    <p class="ket">Pemeriksaan otomatis memastikan perhitungan dan aturan teknis. Ketepatan konsep, bahasa, kewajaran konteks, dan mutu pengecoh tetap perlu dinilai dosen/guru.</p>
+
+    <h2>Temuan yang perlu diperbaiki atau diputuskan</h2>
+    <table><tr><th>No.</th><th>Prioritas</th><th>Temuan</th><th>Soal</th><th>Saran</th></tr><tr class="temuan-Tinggi"><td>T-01</td><td>Tinggi</td><td>Definisi tingkat kesulitan belum seragam<br><span class="ket">PRD 3.1 menetapkan Tingkat 1 = mencari bunga, Tingkat 2 = tabungan akhir atau waktu bulan/hari, Tingkat 3 = mencari modal, suku bunga, atau waktu. Kisi-kisi KF-21 justru memuat &quot;modal/suku bunga – mudah&quot; (no. 4) dan &quot;lama menabung – mudah&quot; (no. 5). Bank soal mengikuti KF-21 dan memakai tingkat relatif di dalam setiap sub-bab (mudah = waktu dalam tahun dan angka sederhana; sedang = bulan; sulit = hari atau data jumlah tabungan akhir). Jika definisi PRD 3.1 dipakai untuk semua soal, 55 dari 94 soal hitungan berpindah tingkat.</span></td><td>Semua soal (lihat label tingkat)</td><td>Putuskan definisi yang berlaku (keputusan K-1), lalu label tingkat disesuaikan.</td></tr><tr class="temuan-Sedang"><td>T-02</td><td>Sedang</td><td>Pengecoh pilihan ganda yang tidak masuk akal<br><span class="ket">Pengecoh yang diambil dari pola &quot;persen tidak dibagi 100&quot; atau &quot;rumus invers&quot; menghasilkan nilai mustahil, misalnya bunga Rp20.000.000 untuk modal Rp2.000.000 (KU-BUNGA-T1-PG-01), suku bunga 0,05% per tahun (KU-MODALP-T1-PG-01), lama 0,02 tahun (KU-LAMA-T1-PG-01), atau modal Rp3.240 (KU-MODALP-T2-PG-01). Siswa bisa membuang opsi ini tanpa menghitung, sehingga daya beda soal turun. Pengecoh &quot;bunga dan tabungan akhir tertukar&quot; tetap wajar dan sebaiknya dipertahankan.</span></td><td>KU-BUNGA-T1-PG-01, KU-BUNGA-T1-PG-02, KU-BUNGA-T2-PG-01 s.d. -04, KU-MODALP-T1-PG-01, KU-MODALP-T1-PG-02, KU-MODALP-T2-PG-01, KU-MODALP-T2-PG-02, KU-MODALP-T3-PG-02, KU-LAMA-T1-PG-01, KU-LAMA-T1-PG-02, KU-TERAP-T2-PG-01, KU-TERAP-T3-PG-01</td><td>Ganti dengan pengecoh yang dekat dan masuk akal, misalnya bunga 1 tahun saat waktu dalam bulan, atau hasil dengan t yang tertukar (12/8). Butuh persetujuan (K-2).</td></tr><tr class="temuan-Sedang"><td>T-03</td><td>Sedang</td><td>Bank kuis tepat di batas minimum<br><span class="ket">Setiap kombinasi kisi-kisi berisi tepat 2 × jumlah nomor (total 40). Jika satu soal ditolak pada pemeriksaan ini atau dinonaktifkan nanti, kombinasinya kurang dan kuis tidak bisa dimulai (BANK_SOAL_KURANG) sampai soal pengganti ditambahkan.</span></td><td>Seluruh bank kuis</td><td>Tambahkan minimal 1 soal cadangan per kombinasi (17 soal), terutama untuk kombinasi yang dipakai 2 nomor. Butuh persetujuan (K-3).</td></tr><tr class="temuan-Sedang"><td>T-04</td><td>Sedang</td><td>Soal latihan sama persis dengan Coba Sendiri di materi<br><span class="ket">P0-T1-01 (Rp400.000, 5% per tahun, 1 tahun) sama angka dan pertanyaannya dengan Coba Sendiri sub-bab P0.</span></td><td>P0-T1-01</td><td>Ganti angka soal latihan, misalnya Rp800.000 dengan 5%.</td></tr><tr class="temuan-Rendah"><td>T-05</td><td>Rendah</td><td>Pengecoh umum yang tidak memberi diagnosis<br><span class="ket">Jika pola kesalahan kurang dari 3, opsi ditambah dengan nilai umum (misalnya 2 × kunci atau bunga 1 tahun). Opsi ini sah, tetapi bila dipilih siswa hanya mendapat pesan umum.</span></td><td>KU-BUNGA-T1-PG-01, KU-BUNGA-T1-PG-02, KU-AKHIR-T1-PG-01, KU-AKHIR-T1-PG-02, KU-MODALP-T1-PG-01, KU-MODALP-T1-PG-02</td><td>Periksa apakah pengecoh ini sudah wajar; bisa diganti bersama T-02.</td></tr><tr class="temuan-Rendah"><td>T-06</td><td>Rendah</td><td>Redaksi dan variasi soal P0<br><span class="ket">Keenam soal P0 memakai satu pola kalimat (&quot;… memberi bunga p% per tahun. Berapa bunga selama 1 tahun …&quot;). Istilah resmi KF-03 adalah &quot;besar bunga&quot;.</span></td><td>P0-T1-01 s.d. P0-T3-02</td><td>Gunakan &quot;besar bunga&quot; dan variasikan konteks (misalnya persen diskon atau persen dari uang saku), selama tetap melatih persen dari suatu jumlah.</td></tr><tr class="temuan-Rendah"><td>T-07</td><td>Rendah</td><td>Cakupan kategori &quot;penerapan sehari-hari&quot; di kuis<br><span class="ket">Keempat soal penerapan berupa menabung untuk membeli barang (mencari lama, modal awal, atau jumlah tabungan akhir). Konteks membandingkan dua tawaran bunga baru ada di materi M6, belum ada di kuis.</span></td><td>KU-TERAP-T2-PG-01, KU-TERAP-T2-PG-02, KU-TERAP-T3-PG-01, KU-TERAP-T3-PG-02</td><td>Dosen/guru menilai apakah sudah mewakili indikator; jika perlu, tambah soal membandingkan dua tawaran (K-4).</td></tr><tr class="temuan-Rendah"><td>T-08</td><td>Rendah</td><td>Kemiripan pola dengan contoh materi<br><span class="ket">Empat soal memakai modal, suku bunga, atau lama yang sama dengan contoh di materi M5, tetapi nilai yang diketahui berbeda sehingga jawabannya berbeda.</span></td><td>M5-T1-02, KU-MODALP-T1-PG-01, KU-LAMA-T1-PG-01, KU-MODALP-T3-PG-01</td><td>Boleh dipertahankan; ganti angka jika dosen menilai terlalu mirip contoh.</td></tr><tr class="temuan-Rendah"><td>T-09</td><td>Rendah</td><td>Bilangan desimal di pembahasan<br><span class="ket">Pembahasan soal mencari modal awal dan lama menabung memuat desimal, misalnya (6/100) × (9/12) = 0,045 atau t = 1,25 tahun. Perhitungannya benar, tetapi perlu dinilai keterbacaannya untuk siswa kelas VIII.</span></td><td>Soal M5, M6, dan kategori modal_suku_bunga / lama_menabung</td><td>Pertahankan, atau ubah penyajian menjadi pecahan jika dinilai lebih mudah dipahami.</td></tr></table>
+
+    <h2>Keputusan yang dibutuhkan dari dosen/guru</h2>
+    <table><tr><th>No.</th><th>Pertanyaan</th><th>Pilihan</th><th>Keputusan</th></tr><tr><td>K-1</td><td>Definisi tingkat kesulitan mana yang dipakai? (T-01)</td><td>a) Tingkat relatif di setiap sub-bab, kisi-kisi KF-21 tetap (seperti sekarang). b) Definisi global PRD 3.1; label soal dan kisi-kisi KF-21 disesuaikan.</td><td>☐ ________</td></tr><tr><td>K-2</td><td>Pengecoh yang tidak masuk akal diganti? (T-02, T-05)</td><td>a) Ganti dengan pengecoh yang dekat dan masuk akal. b) Pertahankan.</td><td>☐ ________</td></tr><tr><td>K-3</td><td>Tambah soal cadangan kuis? (T-03)</td><td>a) Tambah 1 soal per kombinasi (total 57). b) Cukup 40 soal.</td><td>☐ ________</td></tr><tr><td>K-4</td><td>Tambah soal penerapan &quot;membandingkan dua tawaran&quot; di kuis? (T-07)</td><td>a) Ya. b) Tidak, cukup soal menabung untuk membeli barang.</td><td>☐ ________</td></tr></table>
+
+    <h2>Cara memberi catatan</h2>
+    <p>Setiap sub-bab dan soal punya kotak "☐ Sesuai ☐ Perlu perbaikan ☐ Ganti soal" dan baris catatan. Cukup tandai dan tulis catatan di cetakan atau PDF. Perbaikan akan dikerjakan di data bank soal, lalu paket ini dibuat ulang untuk diperiksa sekali lagi.</p>
+
+    <h2>Lembar persetujuan</h2>
+    <table>
+      <tr><th style="width:30%">Bagian</th><th>Disetujui</th><th>Nama pemeriksa</th><th>Tanggal</th><th>Tanda tangan</th></tr>
+      <tr><td>Materi P0, M1–M6</td><td>☐ Ya ☐ Dengan perbaikan ☐ Tidak</td><td></td><td></td><td style="height:34px"></td></tr>
+      <tr><td>Bank soal latihan (60)</td><td>☐ Ya ☐ Dengan perbaikan ☐ Tidak</td><td></td><td></td><td style="height:34px"></td></tr>
+      <tr><td>Bank soal kuis (40)</td><td>☐ Ya ☐ Dengan perbaikan ☐ Tidak</td><td></td><td></td><td style="height:34px"></td></tr>
+    </table>
+</div></body></html>

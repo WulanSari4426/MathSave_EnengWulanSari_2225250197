@@ -1,0 +1,696 @@
+/*
+ * Gaya utama Lanora (sebelumnya MathSave) — tema Emerald + Mint.
+ * Sumber: docs/design.md (bagian 2 Warna, 3 Tipografi, 4 Tata Letak, 6 Komponen,
+ * 7 Ilustrasi, 9 Gerak, 11 Aksesibilitas).
+ * Aturan: JANGAN menambah warna baru di luar token ini (lihat AGENTS.md bagian 4).
+ */
+
+/* ---------- 1. Token ---------- */
+:root {
+  /* Warna utama (design.md bagian 2) */
+  --warna-utama: #17784f; /* emerald: tombol, menu aktif. Teks putih di atasnya 5,47:1 */
+  --warna-utama-tua: #0f3d2e; /* hijau hutan: judul, teks penting, ikon aktif. 10,63:1 di atas mint muda */
+  --warna-utama-muda: #e2f4ea; /* mint sangat muda: kotak rumus, pil menu aktif */
+  --warna-utama-lembut: #9ed9b8; /* mint pastel: HANYA dekorasi/ilustrasi dan garis tombol sekunder */
+
+  /* Netral kehijauan */
+  --warna-latar: #f6fbf8; /* putih kehijauan: latar halaman */
+  --warna-kartu: #ffffff; /* kartu di atas latar */
+  --warna-permukaan: #eaf5ef; /* mint pucat: kartu sekunder */
+  --warna-garis: #d5e8dd;
+
+  /* Teks */
+  --warna-teks: #12372a; /* 12,50:1 di atas latar */
+  --warna-teks-redup: #4c6359; /* 6,20:1 di atas latar, 5,67:1 di atas mint muda */
+  --warna-teks-terang: #ffffff; /* teks di atas tombol utama */
+
+  /* Aksen pastel: HANYA untuk ilustrasi dan penanda kecil, tidak untuk teks */
+  --aksen-kuning: #f6e7b4;
+  --aksen-peach: #f8d9c9;
+  --aksen-peach-tua: #eebba4;
+  --aksen-biru: #d3e6ec;
+
+  /* Umpan balik: HANYA untuk benar/salah dan pesan galat.
+     Hijau "benar" hampir sama dengan hijau merek, jadi umpan balik WAJIB memakai ikon + teks, tidak warna saja. */
+  --warna-benar: #1f7a45;
+  --warna-salah: #b3412e;
+
+  /* Tipografi (design.md bagian 3), dalam rem agar ikut ukuran huruf perangkat */
+  --huruf: system-ui, Roboto, 'Segoe UI', sans-serif;
+  --ukuran-judul-halaman: 1.5rem; /* 24px */
+  --ukuran-judul-kartu: 1.125rem; /* 18px */
+  --ukuran-isi: 1rem; /* 16px */
+  --ukuran-rumus: 1.125rem; /* 18px */
+  --ukuran-keterangan: 0.875rem; /* 14px */
+  --ukuran-label-nav: 0.75rem; /* 12px */
+  --tinggi-baris: 1.55;
+
+  /* Jarak, kelipatan 8px (design.md bagian 4) */
+  --jarak-1: 0.5rem; /* 8px */
+  --jarak-2: 1rem; /* 16px */
+  --jarak-3: 1.5rem; /* 24px */
+  --jarak-4: 2rem; /* 32px */
+
+  /* Ukuran tata letak */
+  --lebar-maks: 30rem; /* 480px */
+  --tinggi-sentuh: 3rem; /* 48px, area sentuh minimal */
+  --tinggi-navigasi: 4.5rem; /* 72px */
+  --sudut-kartu: 20px;
+  --sudut-tombol: 14px;
+  --sudut-pil: 999px;
+
+  /* Bayangan lembut berwarna hijau tua tipis, bukan hitam */
+  --bayangan-kartu: 0 1px 2px rgb(15 61 46 / 0.06), 0 4px 14px rgb(15 61 46 / 0.07);
+  --bayangan-tombol: 0 2px 0 rgb(15 61 46 / 0.18);
+  --bayangan-navigasi: 0 -4px 18px rgb(15 61 46 / 0.08);
+
+  /* Gerak (design.md bagian 9): maksimal 200ms */
+  --durasi-transisi: 150ms;
+
+  color-scheme: light; /* Versi 1: tema terang saja */
+}
+
+/* ---------- 2. Dasar ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--warna-latar);
+  color: var(--warna-teks);
+  font-family: var(--huruf);
+  font-size: var(--ukuran-isi);
+  line-height: var(--tinggi-baris);
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden; /* cadangan: tidak boleh ada geser horizontal */
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  color: var(--warna-utama-tua);
+  font-size: var(--ukuran-judul-halaman);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  color: var(--warna-utama-tua);
+  font-size: var(--ukuran-judul-kartu);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+p {
+  max-width: 60ch; /* panjang baris ±60 karakter */
+}
+
+a {
+  color: var(--warna-utama-tua);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--warna-utama);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. Tata letak aplikasi ---------- */
+.aplikasi {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.konten {
+  width: 100%;
+  max-width: var(--lebar-maks);
+  margin: 0 auto;
+  padding: var(--jarak-3) var(--jarak-2);
+  /* ruang untuk navigasi bawah + area aman layar (notch / gesture bar Android) */
+  padding-bottom: calc(var(--tinggi-navigasi) + var(--jarak-3) + env(safe-area-inset-bottom, 0px));
+}
+
+.konten:focus,
+h1[tabindex='-1']:focus {
+  /* fokus dipindah otomatis oleh router untuk pembaca layar; tidak perlu garis fokus */
+  outline: none;
+}
+
+body.tanpa-navigasi .konten {
+  padding-bottom: calc(var(--jarak-3) + env(safe-area-inset-bottom, 0px));
+}
+
+.halaman {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarak-2);
+}
+
+.halaman-kepala {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarak-1);
+}
+
+.subjudul {
+  color: var(--warna-teks-redup);
+}
+
+/* Halaman berisi pesan di tengah (misalnya halaman tidak ditemukan) */
+.halaman-tengah {
+  align-items: center;
+  text-align: center;
+  padding-top: var(--jarak-3);
+}
+
+/* ---------- 4. Kartu sambutan dengan ilustrasi ---------- */
+.kartu-sambutan {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--jarak-2);
+  padding: var(--jarak-3) var(--jarak-2) var(--jarak-3) var(--jarak-3);
+  border-radius: var(--sudut-kartu);
+  background: var(--warna-utama-muda);
+  overflow: hidden;
+}
+
+.kartu-sambutan-teks {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0; /* judul panjang boleh turun baris, tidak mendorong ilustrasi keluar */
+  flex-direction: column;
+  gap: var(--jarak-1);
+}
+
+.kartu-sambutan .subjudul {
+  color: var(--warna-utama-tua);
+}
+
+.kartu-sambutan-gambar {
+  flex: 0 0 auto;
+  width: 6rem; /* 96px */
+}
+
+/* ---------- 5. Ilustrasi SVG (design.md bagian 7) ---------- */
+.ilustrasi {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ilustrasi-besar {
+  width: 9rem; /* 144px */
+}
+
+.il-garis {
+  stroke: var(--warna-utama-tua);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.il-garis-tipis {
+  fill: none;
+  stroke: var(--warna-utama-tua);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.il-kosong {
+  fill: none;
+}
+
+.il-sage {
+  fill: var(--warna-utama-lembut);
+}
+.il-kuning {
+  fill: var(--aksen-kuning);
+}
+.il-peach {
+  fill: var(--aksen-peach);
+}
+.il-peach-tua {
+  fill: var(--aksen-peach-tua);
+}
+.il-biru {
+  fill: var(--aksen-biru);
+}
+.il-krem {
+  fill: var(--warna-latar);
+}
+.il-putih {
+  fill: var(--warna-kartu);
+}
+.il-mata {
+  fill: var(--warna-utama-tua);
+}
+.il-pipi {
+  fill: var(--aksen-peach-tua);
+  opacity: 0.7;
+}
+.il-bayang {
+  fill: var(--warna-utama-tua);
+  opacity: 0.08;
+}
+.il-teks,
+.il-teks-sage {
+  font-family: var(--huruf);
+  font-weight: 800;
+}
+.il-teks {
+  fill: var(--warna-utama-tua);
+}
+.il-teks-sage {
+  fill: var(--warna-utama);
+}
+
+/* ---------- 6. Navigasi bawah (design.md bagian 4) ---------- */
+.navigasi-bawah {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: var(--warna-kartu);
+  border-radius: 20px 20px 0 0;
+  box-shadow: var(--bayangan-navigasi);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body.tanpa-navigasi .navigasi-bawah {
+  display: none;
+}
+
+.navigasi-bawah ul {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: var(--lebar-maks);
+  margin: 0 auto;
+  padding: 0 var(--jarak-1);
+  list-style: none;
+}
+
+.navigasi-bawah a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: var(--tinggi-navigasi);
+  padding: var(--jarak-1) 0;
+  color: var(--warna-teks-redup);
+  font-size: var(--ukuran-label-nav);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-ikon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem; /* 56px */
+  height: 2rem; /* 32px */
+  border-radius: var(--sudut-pil);
+  transition: background-color var(--durasi-transisi);
+}
+
+.navigasi-bawah svg {
+  width: 24px;
+  height: 24px;
+}
+
+.navigasi-bawah .ikon-isi {
+  fill: transparent;
+  transition: fill var(--durasi-transisi);
+}
+
+.navigasi-bawah a[aria-current='page'] {
+  color: var(--warna-utama-tua);
+  font-weight: 700;
+}
+
+.navigasi-bawah a[aria-current='page'] .nav-ikon {
+  background: var(--warna-utama-muda); /* cadangan untuk peramban lama */
+  background: color-mix(in srgb, var(--warna-utama-lembut) 50%, var(--warna-kartu));
+}
+
+.navigasi-bawah a[aria-current='page'] .ikon-isi {
+  fill: var(--warna-kartu);
+}
+
+.nav-label {
+  white-space: nowrap;
+}
+
+/* ---------- 7. Komponen dasar (design.md bagian 6) ---------- */
+.tombol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--jarak-1);
+  min-height: var(--tinggi-sentuh);
+  min-width: var(--tinggi-sentuh);
+  padding: 0 var(--jarak-3);
+  border: 2px solid var(--warna-utama);
+  border-radius: var(--sudut-tombol);
+  background: var(--warna-utama);
+  box-shadow: var(--bayangan-tombol);
+  color: var(--warna-teks-terang);
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--durasi-transisi),
+    transform var(--durasi-transisi);
+}
+
+.tombol:hover {
+  background: var(--warna-utama-tua);
+  border-color: var(--warna-utama-tua);
+}
+
+.tombol:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.tombol-sekunder {
+  background: var(--warna-kartu);
+  color: var(--warna-utama-tua);
+  border-color: var(--warna-utama-lembut);
+}
+
+.tombol-sekunder:hover {
+  background: var(--warna-utama-muda);
+  border-color: var(--warna-utama);
+}
+
+.tombol-penuh {
+  width: 100%;
+}
+
+.tombol-ikon,
+.tombol-ikon:hover {
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--warna-utama-tua);
+}
+
+.tombol-ikon:hover {
+  background: var(--warna-utama-muda);
+}
+
+.grup-tombol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarak-1);
+}
+
+.kartu {
+  padding: var(--jarak-2) var(--jarak-3);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--sudut-kartu);
+  background: var(--warna-kartu);
+  box-shadow: var(--bayangan-kartu);
+}
+
+.kartu-sekunder {
+  background: var(--warna-permukaan);
+  box-shadow: none;
+}
+
+.kotak-rumus {
+  padding: var(--jarak-2);
+  border-radius: var(--sudut-tombol);
+  background: var(--warna-utama-muda);
+  color: var(--warna-utama-tua);
+  font-size: var(--ukuran-rumus);
+  font-weight: 600;
+}
+
+.keterangan {
+  color: var(--warna-teks-redup);
+  font-size: var(--ukuran-keterangan);
+}
+
+/* Penanda kecil "sedang disiapkan" */
+.label-segera {
+  display: inline-block;
+  margin-top: var(--jarak-1);
+  padding: 2px 10px;
+  border-radius: var(--sudut-pil);
+  background: var(--aksen-kuning);
+  color: var(--warna-utama-tua);
+  font-weight: 600;
+}
+
+.angka {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Merek Lanora di layar Masuk: nama sebagai teks, emblem dari komponen/logo.js */
+.merek {
+  font-size: 2rem; /* 32px */
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.logo-emblem {
+  width: 100%;
+  height: auto;
+  border-radius: 22%;
+}
+
+/* Formulir (layar Masuk, Daftar, Buat PIN baru — design.md 5.1, 5.1a, 5.1b) */
+.formulir {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarak-2);
+}
+
+.kolom-isian {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kolom-isian label {
+  font-weight: 600;
+}
+
+.isian {
+  min-height: var(--tinggi-sentuh);
+  padding: 0 var(--jarak-2);
+  border: 2px solid var(--warna-garis);
+  border-radius: var(--sudut-tombol);
+  background: var(--warna-kartu);
+  color: var(--warna-teks);
+  font: inherit;
+  font-size: var(--ukuran-isi); /* ≥ 16px agar Chrome Android tidak memperbesar layar */
+}
+
+.isian::placeholder {
+  color: var(--warna-teks-redup);
+}
+
+.isian:focus-visible {
+  border-color: var(--warna-utama);
+}
+
+/* Kolom yang ditandai salah: garis merah + pesan teks berikon (tidak hanya warna) */
+.isian[aria-invalid='true'] {
+  border-color: var(--warna-salah);
+}
+
+/* Pilihan kelas (<select> bawaan, design.md 5.0) */
+.isian-pilihan {
+  width: 100%;
+  cursor: pointer;
+}
+
+.isian-pilihan optgroup {
+  color: var(--warna-utama-tua);
+  font-weight: 700;
+}
+
+.isian-pilihan option {
+  color: var(--warna-teks);
+  font-weight: 400;
+}
+
+/* "Langkah 1 dari 2" di layar Daftar */
+.penanda-langkah {
+  align-self: flex-start;
+  padding: 2px 12px;
+  border-radius: var(--sudut-pil);
+  background: var(--warna-utama-muda);
+  color: var(--warna-utama-tua);
+  font-size: var(--ukuran-keterangan);
+  font-weight: 700;
+}
+
+.teks-tengah {
+  text-align: center;
+  align-self: center;
+}
+
+.tautan-sebaris {
+  color: var(--warna-utama-tua);
+  font-weight: 700;
+}
+
+.tombol:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+/* Pesan gagal: ikon ✕ + teks, tidak hanya warna. Tenang, tanpa latar merah penuh. */
+.pesan-galat {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--jarak-1);
+  padding: 12px var(--jarak-2);
+  border-radius: var(--sudut-tombol);
+  background: var(--warna-permukaan);
+  color: var(--warna-salah);
+  font-weight: 600;
+}
+
+.pesan-galat[hidden] {
+  display: none;
+}
+
+.pesan-galat-ikon {
+  flex: 0 0 auto;
+}
+
+/* Pesan berhasil sekali tampil (setelah daftar / buat PIN baru) */
+.pesan-berhasil {
+  padding: 12px var(--jarak-2);
+  border-radius: var(--sudut-tombol);
+  background: var(--warna-utama-muda);
+  color: var(--warna-benar);
+  font-weight: 600;
+}
+
+.tautan-bawah {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--jarak-1);
+  text-align: center;
+}
+
+.tautan {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tinggi-sentuh);
+  padding: 0 var(--jarak-1);
+  color: var(--warna-utama-tua);
+  font-weight: 700;
+}
+
+.tautan-kecil {
+  font-size: var(--ukuran-keterangan);
+}
+
+/* Kepala halaman dengan tombol tutup (layar tanpa navigasi bawah) */
+.kepala-fokus {
+  display: flex;
+  align-items: center;
+  gap: var(--jarak-1);
+  margin: calc(var(--jarak-1) * -1) 0 0 calc(var(--jarak-1) * -1);
+}
+
+.ikon-tutup {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Teks khusus pembaca layar */
+.khusus-pembaca-layar {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- 8. Responsif ---------- */
+/* Layar sangat sempit (< 360px): kurangi jarak samping dan ukuran ilustrasi */
+@media (max-width: 22.4375rem) {
+  .konten {
+    padding-left: var(--jarak-1);
+    padding-right: var(--jarak-1);
+  }
+
+  .kartu-sambutan {
+    padding: var(--jarak-2);
+  }
+
+  .kartu-sambutan-gambar {
+    width: 4.5rem;
+  }
+
+  .kartu {
+    padding: var(--jarak-2);
+  }
+}
+
+/* Laptop/tablet: konten tetap selebar ponsel di tengah, navigasi ikut di tengah */
+@media (min-width: 48rem) {
+  .konten {
+    padding-top: var(--jarak-4);
+  }
+
+  .navigasi-bawah {
+    left: 50%;
+    right: auto;
+    bottom: var(--jarak-2);
+    width: var(--lebar-maks);
+    transform: translateX(-50%);
+    border-radius: var(--sudut-kartu);
+    box-shadow: var(--bayangan-kartu);
+    padding-bottom: 0;
+  }
+
+  .konten {
+    padding-bottom: calc(var(--tinggi-navigasi) + var(--jarak-4) + var(--jarak-2));
+  }
+}
+
+/* ---------- 9. Kurangi gerakan (design.md bagian 9) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}

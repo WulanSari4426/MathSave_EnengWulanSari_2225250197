@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 · Materi P0 dan M1–M6 — Paket Validasi Lanora (DRAF)</title><style>
+  :root { --utama:#17784f; --tua:#0f3d2e; --muda:#e2f4ea; --garis:#c9ddd1; --redup:#4c6359; --salah:#b3412e; --benar:#1f7a45; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 11pt/1.5 system-ui, 'Segoe UI', Roboto, sans-serif; color: #12372a; background: #fff; }
+  .lembar { max-width: 190mm; margin: 0 auto; padding: 12mm 10mm 16mm; }
+  .draf { position: sticky; top: 0; z-index: 5; background: #fff6d6; border: 2px solid #b8860b; color: #5c4300; padding: 6px 10px; font-weight: 700; text-align: center; margin-bottom: 12px; }
+  h1 { font-size: 20pt; margin: 0 0 4px; color: var(--tua); }
+  h2 { font-size: 15pt; margin: 22px 0 8px; color: var(--tua); border-bottom: 2px solid var(--muda); padding-bottom: 4px; page-break-after: avoid; }
+  h3 { font-size: 12pt; margin: 14px 0 6px; color: var(--tua); page-break-after: avoid; }
+  p { margin: 4px 0; }
+  .ket { color: var(--redup); font-size: 9.5pt; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 10pt; }
+  th, td { border: 1px solid var(--garis); padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: var(--muda); }
+  .kartu { border: 1px solid var(--garis); border-radius: 8px; padding: 8px 10px; margin: 10px 0; page-break-inside: avoid; }
+  .soal { border-left: 4px solid var(--utama); }
+  .kotak { background: #f3f8f5; border-radius: 6px; padding: 6px 8px; margin: 4px 0; }
+  .rumus { background: var(--muda); border-radius: 6px; padding: 6px 8px; font-weight: 600; }
+  .label { display: inline-block; border: 1px solid var(--garis); border-radius: 999px; padding: 0 8px; font-size: 9pt; margin-right: 4px; background: #fff; }
+  .kunci { color: var(--benar); font-weight: 700; }
+  .salah { color: var(--salah); }
+  .cek { font-size: 9pt; color: var(--redup); }
+  .cek .ok::before { content: '✓ '; color: var(--benar); font-weight: 700; }
+  .cek .tidak::before { content: '✕ '; color: var(--salah); font-weight: 700; }
+  .periksa { margin-top: 6px; border-top: 1px dashed var(--garis); padding-top: 6px; font-size: 10pt; }
+  .periksa .garis { display: block; border-bottom: 1px solid #999; height: 20px; margin-top: 2px; }
+  .temuan-Tinggi { background: #fdeceb; } .temuan-Sedang { background: #fff4dc; } .temuan-Rendah { background: #f3f8f5; }
+  ol.langkah { margin: 4px 0; padding-left: 20px; } ol.langkah li { margin: 2px 0; }
+  .daftar-isi a { color: var(--utama); }
+  @page { size: A4; margin: 12mm 10mm; }
+  @media print { .draf { position: static; } a { color: inherit; text-decoration: none; } .lembar { padding: 0; } }
+</style></head>
+<body><div class="lembar">
+<div class="draf">DRAF — belum disetujui dosen/guru. Jangan dipakai untuk siswa sebelum ada persetujuan.</div>
+<h1>01 · Materi P0 dan M1–M6</h1>
+<p class="ket">Paket validasi Lanora · Bunga Tunggal dan Tabungan · SMP kelas VIII · disusun 13 November 2026 · dibuat otomatis dari kode (scripts/buat-paket-validasi.mjs), sehingga isinya sama persis dengan yang akan dipakai aplikasi.</p>
+
+    <h2>Cara memeriksa</h2>
+    <p>Setiap sub-bab terdiri dari kartu langkah (satu ide per kartu, ±60 kata), contoh langkah demi langkah (M2–M5 minimal 2: lengkap dan setengah jadi), dan satu soal Coba Sendiri. Siswa berpindah kartu dengan tombol Lanjut/Kembali.</p>
+    <p>Periksa: ketepatan konsep dan rumus, notasi resmi (M, B, p, t, A; B = M × (p/100) × t; A = M + B; 1 tahun = 12 bulan = 365 hari), kejelasan bahasa untuk siswa SMP kelas VIII, dan kebenaran angka. Semua angka contoh sudah dihitung ulang otomatis dan cocok (tests/logika/materi.test.js).</p>
+    <p class="daftar-isi">Daftar isi: <a href="#P0">P0</a> · <a href="#M1">M1</a> · <a href="#M2">M2</a> · <a href="#M3">M3</a> · <a href="#M4">M4</a> · <a href="#M5">M5</a> · <a href="#M6">M6</a></p>
+    <h2 id="P0">P0 · Pemanasan (opsional)</h2>
+      <p class="ket">Persen, perkalian bilangan besar, dan pecahan bulan · 5 kartu · 0 contoh · 1 soal Coba Sendiri</p>
+      <div class="kartu"><h3>Kartu 1: Persen artinya per seratus</h3>
+      <p>Persen (%) artinya &quot;per seratus&quot;. Jadi 6% sama dengan 6/100, atau 0,06.</p>
+      
+      <table><tr><th>Persen</th><th>Pecahan</th><th>Desimal</th></tr><tr><td>5%</td><td>5/100</td><td>0,05</td></tr><tr><td>6%</td><td>6/100</td><td>0,06</td></tr><tr><td>12%</td><td>12/100</td><td>0,12</td></tr></table>
+      
+      
+      <p class="ket">12 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 2: Menghitung persen dari suatu jumlah</h3>
+      <p>Untuk mencari 6% dari Rp500.000, kalikan Rp500.000 dengan 6/100.</p><p>Cara mudah: bagi 100 dulu, lalu kalikan. 500.000 ÷ 100 = 5.000, lalu 5.000 × 6 = 30.000.</p>
+      <div class="rumus">6% dari Rp500.000 = 500.000 × (6/100)<br>= Rp30.000</div>
+      
+      
+      
+      <p class="ket">27 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 3: Mengalikan bilangan besar</h3>
+      <p>Pisahkan dulu angka nolnya. Untuk 2.000.000 × 6, hitung 2 × 6 = 12.</p><p>Lalu tambahkan kembali enam angka nol. Hasilnya 12.000.000.</p>
+      <div class="rumus">2.000.000 × 6 = 12.000.000</div>
+      
+      
+      
+      <p class="ket">22 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 4: Bulan menjadi pecahan tahun</h3>
+      <p>1 tahun = 12 bulan. Jadi banyak bulan dibagi 12. Sederhanakan pecahannya jika bisa.</p>
+      
+      <table><tr><th>Bulan</th><th>Dalam tahun</th></tr><tr><td>3 bulan</td><td>3/12 = 1/4 tahun</td></tr><tr><td>6 bulan</td><td>6/12 = 1/2 tahun</td></tr><tr><td>8 bulan</td><td>8/12 = 2/3 tahun</td></tr></table>
+      
+      
+      <p class="ket">14 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 5: Hari menjadi pecahan tahun</h3>
+      <p>Di Lanora, 1 tahun = 365 hari. Jadi banyak hari dibagi 365.</p><p>Contoh: 73 hari = 73/365 = 1/5 tahun. Jangan mengubah hari ke bulan lewat angka 30.</p>
+      
+      
+      
+      
+      <p class="ket">28 kata (batas ±60)</p></div>
+      <div class="kartu"><h3>Coba Sendiri</h3><div class="kotak">Berapa 5% dari Rp400.000?</div>
+      <p><span class="kunci">Kunci: Rp20.000</span> · toleransi 1 (rupiah)</p>
+      <p><strong>Pembahasan:</strong> 5% dari Rp400.000 = 400.000 × (5/100). 400.000 ÷ 100 = 4.000, lalu 4.000 × 5 = 20.000. Jadi hasilnya Rp20.000.</p></div>
+      <div class="periksa"><strong>Pemeriksaan sub-bab P0:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div><h2 id="M1">M1 · Mengenal tabungan dan bunga</h2>
+      <p class="ket">Istilah dan simbol: M, B, p, t, A · 5 kartu · 0 contoh · 1 soal Coba Sendiri</p>
+      <div class="kartu"><h3>Kartu 1: Menabung dan bunga</h3>
+      <p>Saat kamu menabung di bank atau koperasi, uangmu disimpan di sana.</p><p>Bank atau koperasi lalu memberi tambahan uang. Tambahan uang ini disebut bunga.</p>
+      
+      
+      <p class="ket">[Gambar penjelas: M + B = jumlah tabungan akhir (A)]</p>
+      
+      <p class="ket">23 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 2: Lima istilah penting</h3>
+      <p>Istilah dan simbol ini dipakai di semua materi dan soal.</p>
+      
+      <table><tr><th>Simbol</th><th>Istilah</th><th>Artinya</th></tr><tr><td>M</td><td>Modal awal</td><td>Uang yang pertama kali ditabung (Rp)</td></tr><tr><td>B</td><td>Besar bunga</td><td>Tambahan uang dari bank atau koperasi (Rp)</td></tr><tr><td>p</td><td>Suku bunga per tahun</td><td>Persen bunga dalam satu tahun</td></tr><tr><td>t</td><td>Lama menabung</td><td>Lama uang ditabung, dalam tahun</td></tr><tr><td>A</td><td>Jumlah tabungan akhir</td><td>Uang setelah ditambah bunga (Rp)</td></tr></table>
+      
+      
+      <p class="ket">10 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 3: Suku bunga selalu per tahun</h3>
+      <p>&quot;Suku bunga 6% per tahun&quot; artinya dalam satu tahun, bunganya 6% dari modal awal.</p><p>Suku bunga ditulis sebagai angka persennya: p = 6, bukan 0,06.</p>
+      
+      
+      
+      
+      <p class="ket">25 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 4: Bunga tunggal</h3>
+      <p>Pada bunga tunggal, bunga selalu dihitung dari modal awal saja.</p><p>Karena itu, bunga bertambah sama besar setiap tahun.</p>
+      
+      <table><tr><th>Tahun ke-</th><th>Bunga tahun itu</th><th>Total bunga</th></tr><tr><td>1</td><td>Rp100.000</td><td>Rp100.000</td></tr><tr><td>2</td><td>Rp100.000</td><td>Rp200.000</td></tr><tr><td>3</td><td>Rp100.000</td><td>Rp300.000</td></tr></table>
+      
+      <p class="ket">Contoh: modal awal Rp1.000.000 dengan suku bunga 10% per tahun.</p>
+      <p class="ket">18 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 5: Membaca soal tabungan</h3>
+      <p>&quot;Rani menabung Rp1.000.000 di koperasi dengan suku bunga 6% per tahun selama 2 tahun.&quot;</p><p>Dari kalimat ini: M = Rp1.000.000, p = 6, dan t = 2. Yang belum diketahui adalah besar bunga (B) dan jumlah tabungan akhir (A).</p>
+      
+      
+      
+      
+      <p class="ket">39 kata (batas ±60)</p></div>
+      <div class="kartu"><h3>Coba Sendiri</h3><div class="kotak">Dimas menabung Rp500.000 di koperasi dengan suku bunga 10% per tahun. Berapa besar bunga yang Dimas terima dalam 1 tahun?</div>
+      <p><span class="kunci">Kunci: Rp50.000</span> · toleransi 1 (rupiah)</p>
+      <p><strong>Pembahasan:</strong> Suku bunga 10% per tahun berarti bunga satu tahun = 10% dari modal awal. 500.000 × (10/100) = 50.000. Jadi besar bunga dalam 1 tahun adalah Rp50.000.</p></div>
+      <div class="periksa"><strong>Pemeriksaan sub-bab M1:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div><h2 id="M2">M2 · Rumus bunga tunggal</h2>
+      <p class="ket">B = M × (p/100) × t, waktu dalam tahun · 3 kartu · 2 contoh · 1 soal Coba Sendiri</p>
+      <div class="kartu"><h3>Kartu 1: Rumus bunga tunggal</h3>
+      <p>Besar bunga dihitung dengan rumus di bawah. t harus dalam tahun.</p>
+      <div class="rumus">B = M × (p/100) × t</div>
+      <table><tr><th>Simbol</th><th>Artinya</th></tr><tr><td>B</td><td>Besar bunga</td></tr><tr><td>M</td><td>Modal awal</td></tr><tr><td>p</td><td>Suku bunga per tahun</td></tr><tr><td>t</td><td>Lama menabung (tahun)</td></tr></table>
+      
+      
+      <p class="ket">11 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 2: Tiga langkah menghitung</h3>
+      <p>1. Tulis nilai M, p, dan t dari soal.</p><p>2. Masukkan angkanya ke rumus.</p><p>3. Hitung: bagi p dengan 100, lalu kalikan dengan M dan t.</p>
+      
+      
+      
+      
+      <p class="ket">26 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 3: Periksa hasilmu</h3>
+      <p>Bunga 2 tahun sama dengan 2 kali bunga 1 tahun.</p><p>Jika suku bunga di bawah 100, bunga satu tahun selalu lebih kecil dari modal awal.</p><p>Jika hasilmu terlalu besar, periksa lagi apakah p sudah dibagi 100.</p>
+      
+      
+      
+      
+      <p class="ket">36 kata (batas ±60)</p></div><div class="kartu"><h3>Contoh 1 <span class="label">contoh lengkap</span></h3>
+      <div class="kotak">Rani menabung Rp2.000.000 di koperasi sekolah dengan suku bunga 6% per tahun. Berapa besar bunga setelah 3 tahun?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp2.000.000 · p = 6 · t = 3 tahun · Ditanya: besar bunga (B)</li><li><strong>Rencanakan:</strong> Lama menabung sudah dalam tahun. · B = M × (p/100) × t</li><li><strong>Hitung:</strong> B = 2.000.000 × (6/100) × 3 · B = 20.000 × 6 × 3 · B = Rp360.000</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp120.000. · Bunga 3 tahun = 3 × Rp120.000 = Rp360.000. Cocok.</li></ol>
+      <p><span class="kunci">Jawaban: Rp360.000</span></p></div><div class="kartu"><h3>Contoh 2 (lengkapi sendiri) <span class="label">contoh setengah jadi</span></h3>
+      <div class="kotak">Budi menabung Rp1.500.000 di bank dengan suku bunga 8% per tahun. Berapa besar bunga setelah 2 tahun?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp1.500.000 · p = 8 · t = 2 tahun · Ditanya: besar bunga (B)</li><li><strong>Rencanakan:</strong> B = M × (p/100) × t</li><li><strong>Hitung:</strong> B = 1.500.000 × (8/100) × 2 · B = 15.000 × 8 × 2 · B = Rp240.000 <em>(siswa mengisi: B (Rp) = Rp240.000)</em></li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp120.000, jadi 2 tahun = Rp240.000. Cocok.</li></ol>
+      <p><span class="kunci">Jawaban: Rp240.000</span></p></div>
+      <div class="kartu"><h3>Coba Sendiri</h3><div class="kotak">Sinta menabung Rp3.000.000 di bank dengan suku bunga 5% per tahun. Berapa besar bunga setelah 2 tahun?</div>
+      <p><span class="kunci">Kunci: Rp300.000</span> · toleransi 1 (rupiah)</p>
+      <p><strong>Pembahasan:</strong> M = Rp3.000.000, p = 5, t = 2. B = 3.000.000 × (5/100) × 2 = 30.000 × 5 × 2 = 300.000. Jadi besar bunga Rp300.000.</p></div>
+      <div class="periksa"><strong>Pemeriksaan sub-bab M2:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div><h2 id="M3">M3 · Waktu dalam bulan dan hari</h2>
+      <p class="ket">Ubah dulu ke tahun: bulan ÷ 12, hari ÷ 365 · 4 kartu · 2 contoh · 1 soal Coba Sendiri</p>
+      <div class="kartu"><h3>Kartu 1: t selalu dalam tahun</h3>
+      <p>Suku bunga ditulis per tahun. Jika lama menabung dalam bulan atau hari, ubah dulu ke tahun.</p>
+      <div class="rumus">1 tahun = 12 bulan<br>6 bulan = 6/12 tahun<br>8 bulan = 8/12 tahun</div>
+      
+      <p class="ket">[Gambar penjelas: garis waktu 12 bulan = 1 tahun, 6 bulan = 6/12 tahun]</p>
+      
+      <p class="ket">16 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 2: Dari bulan ke tahun</h3>
+      <p>Bagi banyak bulan dengan 12.</p>
+      <div class="rumus">t = banyak bulan ÷ 12</div>
+      <table><tr><th>Lama</th><th>t (tahun)</th></tr><tr><td>3 bulan</td><td>3/12</td></tr><tr><td>9 bulan</td><td>9/12</td></tr><tr><td>18 bulan</td><td>18/12</td></tr></table>
+      
+      
+      <p class="ket">5 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 3: Dari hari ke tahun</h3>
+      <p>Di Lanora, 1 tahun = 365 hari. Bagi banyak hari dengan 365, langsung ke tahun. Jangan lewat angka 30.</p>
+      <div class="rumus">t = banyak hari ÷ 365<br>73 hari → t = 73/365</div>
+      
+      
+      
+      <p class="ket">19 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 4: Kesalahan yang sering terjadi</h3>
+      <p>Menulis t = 8 untuk 8 bulan membuat bunga 12 kali terlalu besar.</p><p>Biasakan bertanya: &quot;Lama menabungnya sudah dalam tahun?&quot; Jika belum, ubah dulu.</p>
+      
+      
+      
+      
+      <p class="ket">24 kata (batas ±60)</p></div><div class="kartu"><h3>Contoh 1 <span class="label">contoh lengkap</span></h3>
+      <div class="kotak">Rani menabung Rp2.000.000 di koperasi dengan suku bunga 6% per tahun. Berapa besar bunga setelah 8 bulan?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp2.000.000 · p = 6 · Lama = 8 bulan · Ditanya: besar bunga (B)</li><li><strong>Rencanakan:</strong> Lama dalam bulan, jadi t = 8/12 tahun. · B = M × (p/100) × t</li><li><strong>Hitung:</strong> B = 2.000.000 × (6/100) × (8/12) · B = 120.000 × 8/12 · B = Rp80.000</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp120.000. · 8 bulan kurang dari 1 tahun, jadi bunganya harus kurang dari Rp120.000. Rp80.000 masuk akal.</li></ol>
+      <p><span class="kunci">Jawaban: Rp80.000</span></p></div><div class="kartu"><h3>Contoh 2 (lengkapi sendiri) <span class="label">contoh setengah jadi</span></h3>
+      <div class="kotak">Dimas menabung Rp3.650.000 di bank dengan suku bunga 10% per tahun. Berapa besar bunga setelah 73 hari?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp3.650.000 · p = 10 · Lama = 73 hari · Ditanya: besar bunga (B)</li><li><strong>Rencanakan:</strong> Lama dalam hari, jadi t = 73/365 tahun. · B = M × (p/100) × t</li><li><strong>Hitung:</strong> B = 3.650.000 × (10/100) × (73/365) · B = 365.000 × 73/365 · B = Rp73.000 <em>(siswa mengisi: B (Rp) = Rp73.000)</em></li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp365.000. 73 hari = 1/5 tahun, dan Rp365.000 ÷ 5 = Rp73.000. Cocok.</li></ol>
+      <p><span class="kunci">Jawaban: Rp73.000</span></p></div>
+      <div class="kartu"><h3>Coba Sendiri</h3><div class="kotak">Lina menabung Rp1.200.000 di koperasi sekolah dengan suku bunga 5% per tahun. Berapa besar bunga setelah 6 bulan?</div>
+      <p><span class="kunci">Kunci: Rp30.000</span> · toleransi 1 (rupiah)</p>
+      <p><strong>Pembahasan:</strong> 6 bulan = 6/12 tahun. B = 1.200.000 × (5/100) × (6/12) = 60.000 × 6/12 = 30.000. Jadi besar bunga Rp30.000.</p></div>
+      <div class="periksa"><strong>Pemeriksaan sub-bab M3:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div><h2 id="M4">M4 · Jumlah tabungan akhir</h2>
+      <p class="ket">A = M + B · 3 kartu · 2 contoh · 1 soal Coba Sendiri</p>
+      <div class="kartu"><h3>Kartu 1: Jumlah tabungan akhir (A)</h3>
+      <p>Jumlah tabungan akhir adalah uang di tabungan setelah ditambah bunga.</p>
+      <div class="rumus">A = M + B<br>Jumlah tabungan akhir = modal awal + besar bunga</div>
+      
+      
+      
+      <p class="ket">10 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 2: Dua langkah</h3>
+      <p>1. Hitung besar bunga dulu: B = M × (p/100) × t.</p><p>2. Tambahkan bunga ke modal awal: A = M + B.</p>
+      
+      
+      
+      
+      <p class="ket">23 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 3: Bunga atau tabungan akhir?</h3>
+      <p>Baca pertanyaannya dengan teliti.</p><p>&quot;Berapa bunganya?&quot; → yang dicari B.</p><p>&quot;Berapa jumlah tabungannya sekarang?&quot; atau &quot;Berapa tabungan akhirnya?&quot; → yang dicari jumlah tabungan akhir (A).</p>
+      
+      
+      
+      
+      <p class="ket">25 kata (batas ±60)</p></div><div class="kartu"><h3>Contoh 1 <span class="label">contoh lengkap</span></h3>
+      <div class="kotak">Dimas menabung Rp1.500.000 di bank dengan suku bunga 8% per tahun. Berapa jumlah tabungan Dimas setelah 9 bulan?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp1.500.000 · p = 8 · Lama = 9 bulan · Ditanya: jumlah tabungan akhir (A)</li><li><strong>Rencanakan:</strong> t = 9/12 tahun. · Hitung B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 1.500.000 × (8/100) × (9/12) = 120.000 × 9/12 = Rp90.000 · A = 1.500.000 + 90.000 = Rp1.590.000</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan selisihnya Rp90.000 = besar bunga. Cocok.</li></ol>
+      <p><span class="kunci">Jawaban: Rp1.590.000</span></p></div><div class="kartu"><h3>Contoh 2 (lengkapi sendiri) <span class="label">contoh setengah jadi</span></h3>
+      <div class="kotak">Ayu menabung Rp2.400.000 di koperasi dengan suku bunga 5% per tahun. Berapa jumlah tabungan akhir setelah 2 tahun?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp2.400.000 · p = 5 · t = 2 tahun · Ditanya: jumlah tabungan akhir (A)</li><li><strong>Rencanakan:</strong> Hitung B dulu, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 2.400.000 × (5/100) × 2 = Rp240.000 · A = 2.400.000 + 240.000 · A = Rp2.640.000 <em>(siswa mengisi: Jumlah tabungan akhir A (Rp) = Rp2.640.000)</em></li><li><strong>Periksa:</strong> A − M = Rp240.000 = besar bunga. Cocok.</li></ol>
+      <p><span class="kunci">Jawaban: Rp2.640.000</span></p></div>
+      <div class="kartu"><h3>Coba Sendiri</h3><div class="kotak">Bayu menabung Rp1.000.000 di bank dengan suku bunga 12% per tahun. Berapa jumlah tabungan akhir setelah 6 bulan?</div>
+      <p><span class="kunci">Kunci: Rp1.060.000</span> · toleransi 1 (rupiah)</p>
+      <p><strong>Pembahasan:</strong> t = 6/12 tahun. B = 1.000.000 × (12/100) × (6/12) = 60.000. A = 1.000.000 + 60.000 = 1.060.000. Jadi jumlah tabungan akhir Rp1.060.000.</p></div>
+      <div class="periksa"><strong>Pemeriksaan sub-bab M4:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div><h2 id="M5">M5 · Mencari nilai yang belum diketahui</h2>
+      <p class="ket">Mencari M, p, atau t · 4 kartu · 3 contoh · 1 soal Coba Sendiri</p>
+      <div class="kartu"><h3>Kartu 1: Rumus untuk mencari nilai lain</h3>
+      <p>Semua rumus ini berasal dari B = M × (p/100) × t dan A = M + B.</p>
+      
+      <table><tr><th>Dicari</th><th>Rumus</th></tr><tr><td>Modal awal (dari B)</td><td>M = B ÷ ((p/100) × t)</td></tr><tr><td>Modal awal (dari A)</td><td>M = A ÷ (1 + (p/100) × t)</td></tr><tr><td>Besar bunga (dari A)</td><td>B = A − M</td></tr><tr><td>Suku bunga per tahun</td><td>p = (B × 100) ÷ (M × t)</td></tr><tr><td>Lama menabung (tahun)</td><td>t = (B × 100) ÷ (M × p)</td></tr></table>
+      
+      
+      <p class="ket">18 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 2: Langkah memilih rumus</h3>
+      <p>1. Tulis semua yang diketahui.</p><p>2. Tentukan yang ditanya: M, p, atau t.</p><p>3. Ubah lama menabung ke tahun dulu.</p><p>4. Pilih rumus dari tabel, lalu hitung.</p>
+      
+      
+      
+      
+      <p class="ket">27 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 3: Jika yang diketahui jumlah tabungan akhir</h3>
+      <p>Banyak soal memberi jumlah tabungan akhir (A), bukan bunga.</p><p>Cari bunganya dulu: B = A − M. Setelah itu baru cari p atau t.</p>
+      
+      
+      
+      
+      <p class="ket">24 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 4: Lama menabung dalam bulan</h3>
+      <p>Rumus t memberi hasil dalam tahun.</p><p>Jika soal menanyakan bulan, kalikan hasilnya dengan 12. Contoh: t = 0,5 tahun = 0,5 × 12 = 6 bulan.</p>
+      
+      
+      
+      
+      <p class="ket">26 kata (batas ±60)</p></div><div class="kartu"><h3>Contoh 1: mencari suku bunga <span class="label">contoh lengkap</span></h3>
+      <div class="kotak">Rani menabung Rp2.000.000. Setelah 2 tahun, ia mendapat bunga Rp240.000. Berapa suku bunga per tahunnya?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp2.000.000 · B = Rp240.000 · t = 2 tahun · Ditanya: suku bunga per tahun (p)</li><li><strong>Rencanakan:</strong> p = (B × 100) ÷ (M × t)</li><li><strong>Hitung:</strong> p = (240.000 × 100) ÷ (2.000.000 × 2) · p = 24.000.000 ÷ 4.000.000 · p = 6, jadi 6% per tahun</li><li><strong>Periksa:</strong> Dengan p = 6: B = 2.000.000 × (6/100) × 2 = Rp240.000. Sama dengan soal.</li></ol>
+      <p><span class="kunci">Jawaban: 6% per tahun</span></p></div><div class="kartu"><h3>Contoh 2: mencari modal awal <span class="label">contoh lengkap</span></h3>
+      <div class="kotak">Budi mendapat bunga Rp90.000 setelah menabung 9 bulan dengan suku bunga 8% per tahun. Berapa modal awal Budi?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> B = Rp90.000 · p = 8 · Lama = 9 bulan · Ditanya: modal awal (M)</li><li><strong>Rencanakan:</strong> t = 9/12 tahun. · M = B ÷ ((p/100) × t)</li><li><strong>Hitung:</strong> (8/100) × (9/12) = 0,06 · M = 90.000 ÷ 0,06 · M = Rp1.500.000</li><li><strong>Periksa:</strong> B = 1.500.000 × (8/100) × (9/12) = Rp90.000. Sama dengan soal.</li></ol>
+      <p><span class="kunci">Jawaban: Rp1.500.000</span></p></div><div class="kartu"><h3>Contoh 3 (lengkapi sendiri) <span class="label">contoh setengah jadi</span></h3>
+      <div class="kotak">Ayu menabung Rp1.000.000 dengan suku bunga 6% per tahun. Bunganya Rp30.000. Berapa bulan Ayu menabung?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp1.000.000 · p = 6 · B = Rp30.000 · Ditanya: lama menabung, dalam bulan</li><li><strong>Rencanakan:</strong> t = (B × 100) ÷ (M × p), hasilnya dalam tahun. · Lalu kalikan 12 untuk mendapat bulan.</li><li><strong>Hitung:</strong> t = (30.000 × 100) ÷ (1.000.000 × 6) · t = 3.000.000 ÷ 6.000.000 = 0,5 tahun · 0,5 × 12 = 6 bulan <em>(siswa mengisi: Lama menabung (bulan) = 6 bulan)</em></li><li><strong>Periksa:</strong> B = 1.000.000 × (6/100) × (6/12) = Rp30.000. Sama dengan soal.</li></ol>
+      <p><span class="kunci">Jawaban: 6 bulan</span></p></div>
+      <div class="kartu"><h3>Coba Sendiri</h3><div class="kotak">Nina menabung Rp1.500.000. Setelah 2 tahun, bunganya Rp150.000. Berapa suku bunga per tahunnya?</div>
+      <p><span class="kunci">Kunci: 5% per tahun</span> · toleransi 0,01 (persen)</p>
+      <p><strong>Pembahasan:</strong> p = (B × 100) ÷ (M × t). p = (150.000 × 100) ÷ (1.500.000 × 2) = 15.000.000 ÷ 3.000.000 = 5. Jadi suku bunganya 5% per tahun.</p></div>
+      <div class="periksa"><strong>Pemeriksaan sub-bab M5:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div><h2 id="M6">M6 · Strategi soal cerita</h2>
+      <p class="ket">Pahami → Rencanakan → Hitung → Periksa · 4 kartu · 1 contoh · 1 soal Coba Sendiri</p>
+      <div class="kartu"><h3>Kartu 1: Empat langkah</h3>
+      <p>Setiap soal cerita bisa dikerjakan dengan empat langkah yang sama.</p>
+      
+      <table><tr><th>Langkah</th><th>Yang kamu lakukan</th></tr><tr><td>1. Pahami</td><td>Tulis yang diketahui dan yang ditanya</td></tr><tr><td>2. Rencanakan</td><td>Pilih rumus, ubah satuan waktu</td></tr><tr><td>3. Hitung</td><td>Masukkan angka, hitung dengan teliti</td></tr><tr><td>4. Periksa</td><td>Cek apakah hasilnya masuk akal</td></tr></table>
+      
+      
+      <p class="ket">10 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 2: 1. Pahami</h3>
+      <p>Baca soal dua kali. Tandai angka dan satuannya: rupiah, persen per tahun, bulan, atau hari.</p><p>Lalu tulis yang ditanya: besar bunga, jumlah tabungan akhir, modal awal, suku bunga, atau lama menabung.</p>
+      
+      
+      
+      
+      <p class="ket">31 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 3: 2. Rencanakan</h3>
+      <p>Pilih rumus yang sesuai dengan yang ditanya.</p><p>Periksa satuan waktu. Jika dalam bulan atau hari, ubah dulu ke tahun.</p>
+      
+      
+      
+      
+      <p class="ket">19 kata (batas ±60)</p></div><div class="kartu"><h3>Kartu 4: 3. Hitung dan 4. Periksa</h3>
+      <p>Masukkan angka ke rumus dan hitung pelan-pelan.</p><p>Lalu periksa: apakah bunga lebih kecil dari bunga setahun jika waktunya kurang dari setahun? Apakah jumlah tabungan akhir lebih besar dari modal awal?</p>
+      
+      
+      
+      
+      <p class="ket">30 kata (batas ±60)</p></div><div class="kartu"><h3>Contoh: membandingkan dua tawaran <span class="label">contoh lengkap</span></h3>
+      <div class="kotak">Koperasi sekolah memberi suku bunga 6% per tahun. Bank memberi 5% per tahun. Tia ingin menabung Rp2.000.000 selama 1 tahun. Berapa selisih bunga dari kedua tempat itu?</div>
+      <ol class="langkah"><li><strong>Pahami:</strong> M = Rp2.000.000, t = 1 tahun · Koperasi p = 6, bank p = 5 · Ditanya: selisih besar bunga</li><li><strong>Rencanakan:</strong> Hitung B di masing-masing tempat dengan B = M × (p/100) × t, lalu kurangkan.</li><li><strong>Hitung:</strong> Koperasi: B = 2.000.000 × (6/100) × 1 = Rp120.000 · Bank: B = 2.000.000 × (5/100) × 1 = Rp100.000 · Selisih = 120.000 − 100.000 = Rp20.000</li><li><strong>Periksa:</strong> Selisih suku bunganya 1%, dan 1% dari Rp2.000.000 = Rp20.000. Cocok. Koperasi memberi bunga lebih besar.</li></ol>
+      <p><span class="kunci">Jawaban: Rp20.000</span></p></div>
+      <div class="kartu"><h3>Coba Sendiri</h3><div class="kotak">Tia ingin membeli sepeda seharga Rp1.590.000. Ia menabung Rp1.500.000 di bank dengan suku bunga 8% per tahun. Setelah berapa bulan jumlah tabungannya pas untuk membeli sepeda?</div>
+      <p><span class="kunci">Kunci: 9 bulan</span> · toleransi 0,01 (bulan)</p>
+      <p><strong>Pembahasan:</strong> Pahami: jumlah tabungan akhir yang diinginkan Rp1.590.000, jadi bunga yang dibutuhkan B = 1.590.000 − 1.500.000 = Rp90.000. Rencanakan dan hitung: t = (90.000 × 100) ÷ (1.500.000 × 8) = 9.000.000 ÷ 12.000.000 = 0,75 tahun = 0,75 × 12 = 9 bulan. Periksa: B = 1.500.000 × (8/100) × (9/12) = Rp90.000. Cocok.</p></div>
+      <div class="periksa"><strong>Pemeriksaan sub-bab M6:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+</div></body></html>

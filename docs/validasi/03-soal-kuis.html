@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 · Bank Soal Kuis (40 soal) — Paket Validasi Lanora (DRAF)</title><style>
+  :root { --utama:#17784f; --tua:#0f3d2e; --muda:#e2f4ea; --garis:#c9ddd1; --redup:#4c6359; --salah:#b3412e; --benar:#1f7a45; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 11pt/1.5 system-ui, 'Segoe UI', Roboto, sans-serif; color: #12372a; background: #fff; }
+  .lembar { max-width: 190mm; margin: 0 auto; padding: 12mm 10mm 16mm; }
+  .draf { position: sticky; top: 0; z-index: 5; background: #fff6d6; border: 2px solid #b8860b; color: #5c4300; padding: 6px 10px; font-weight: 700; text-align: center; margin-bottom: 12px; }
+  h1 { font-size: 20pt; margin: 0 0 4px; color: var(--tua); }
+  h2 { font-size: 15pt; margin: 22px 0 8px; color: var(--tua); border-bottom: 2px solid var(--muda); padding-bottom: 4px; page-break-after: avoid; }
+  h3 { font-size: 12pt; margin: 14px 0 6px; color: var(--tua); page-break-after: avoid; }
+  p { margin: 4px 0; }
+  .ket { color: var(--redup); font-size: 9.5pt; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 10pt; }
+  th, td { border: 1px solid var(--garis); padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: var(--muda); }
+  .kartu { border: 1px solid var(--garis); border-radius: 8px; padding: 8px 10px; margin: 10px 0; page-break-inside: avoid; }
+  .soal { border-left: 4px solid var(--utama); }
+  .kotak { background: #f3f8f5; border-radius: 6px; padding: 6px 8px; margin: 4px 0; }
+  .rumus { background: var(--muda); border-radius: 6px; padding: 6px 8px; font-weight: 600; }
+  .label { display: inline-block; border: 1px solid var(--garis); border-radius: 999px; padding: 0 8px; font-size: 9pt; margin-right: 4px; background: #fff; }
+  .kunci { color: var(--benar); font-weight: 700; }
+  .salah { color: var(--salah); }
+  .cek { font-size: 9pt; color: var(--redup); }
+  .cek .ok::before { content: '✓ '; color: var(--benar); font-weight: 700; }
+  .cek .tidak::before { content: '✕ '; color: var(--salah); font-weight: 700; }
+  .periksa { margin-top: 6px; border-top: 1px dashed var(--garis); padding-top: 6px; font-size: 10pt; }
+  .periksa .garis { display: block; border-bottom: 1px solid #999; height: 20px; margin-top: 2px; }
+  .temuan-Tinggi { background: #fdeceb; } .temuan-Sedang { background: #fff4dc; } .temuan-Rendah { background: #f3f8f5; }
+  ol.langkah { margin: 4px 0; padding-left: 20px; } ol.langkah li { margin: 2px 0; }
+  .daftar-isi a { color: var(--utama); }
+  @page { size: A4; margin: 12mm 10mm; }
+  @media print { .draf { position: static; } a { color: inherit; text-decoration: none; } .lembar { padding: 0; } }
+</style></head>
+<body><div class="lembar">
+<div class="draf">DRAF — belum disetujui dosen/guru. Jangan dipakai untuk siswa sebelum ada persetujuan.</div>
+<h1>03 · Bank Soal Kuis (40 soal)</h1>
+<p class="ket">Paket validasi Lanora · Bunga Tunggal dan Tabungan · SMP kelas VIII · disusun 13 November 2026 · dibuat otomatis dari kode (scripts/buat-paket-validasi.mjs), sehingga isinya sama persis dengan yang akan dipakai aplikasi.</p>
+
+    <h2>Aturan kuis yang dipakai</h2>
+    <p>Satu sesi kuis: 20 soal, 30 menit, 15 pilihan ganda + 5 isian angka, maksimal 2 percobaan dengan 20 soal berbeda (KF-10 sampai KF-22). Setiap nomor punya kategori, tingkat, dan bentuk yang tetap (kisi-kisi KF-21). Server memilih satu soal per nomor dari kandidat di bawah. Pilihan ganda: 4 opsi, 1 kunci, urutan diacak per siswa. Tanpa petunjuk selama kuis; pembahasan tampil setelah kuis dikumpulkan.</p>
+    <p class="ket">Dokumen ini memuat kunci jawaban kuis. Jangan dibagikan kepada siswa.</p>
+    <h2>Kisi-kisi KF-21 dan soal kandidat</h2>
+    <table><tr><th>No.</th><th>Submateri (indikator)</th><th>Tingkat</th><th>Bentuk</th><th>Soal kandidat di bank</th></tr><tr><td>1</td><td>Konsep bunga tunggal</td><td>Mudah</td><td>Pilihan ganda</td><td><a href="#KU-KONSEP-T1-PG-01">KU-KONSEP-T1-PG-01</a>, <a href="#KU-KONSEP-T1-PG-02">KU-KONSEP-T1-PG-02</a>, <a href="#KU-KONSEP-T1-PG-03">KU-KONSEP-T1-PG-03</a>, <a href="#KU-KONSEP-T1-PG-04">KU-KONSEP-T1-PG-04</a></td></tr><tr><td>2</td><td>Menghitung besar bunga</td><td>Mudah</td><td>Pilihan ganda</td><td><a href="#KU-BUNGA-T1-PG-01">KU-BUNGA-T1-PG-01</a>, <a href="#KU-BUNGA-T1-PG-02">KU-BUNGA-T1-PG-02</a></td></tr><tr><td>3</td><td>Menghitung jumlah tabungan akhir</td><td>Mudah</td><td>Pilihan ganda</td><td><a href="#KU-AKHIR-T1-PG-01">KU-AKHIR-T1-PG-01</a>, <a href="#KU-AKHIR-T1-PG-02">KU-AKHIR-T1-PG-02</a></td></tr><tr><td>4</td><td>Menentukan modal awal atau suku bunga</td><td>Mudah</td><td>Pilihan ganda</td><td><a href="#KU-MODALP-T1-PG-01">KU-MODALP-T1-PG-01</a>, <a href="#KU-MODALP-T1-PG-02">KU-MODALP-T1-PG-02</a></td></tr><tr><td>5</td><td>Menghitung lama menabung</td><td>Mudah</td><td>Pilihan ganda</td><td><a href="#KU-LAMA-T1-PG-01">KU-LAMA-T1-PG-01</a>, <a href="#KU-LAMA-T1-PG-02">KU-LAMA-T1-PG-02</a></td></tr><tr><td>6</td><td>Konsep bunga tunggal</td><td>Mudah</td><td>Pilihan ganda</td><td><a href="#KU-KONSEP-T1-PG-01">KU-KONSEP-T1-PG-01</a>, <a href="#KU-KONSEP-T1-PG-02">KU-KONSEP-T1-PG-02</a>, <a href="#KU-KONSEP-T1-PG-03">KU-KONSEP-T1-PG-03</a>, <a href="#KU-KONSEP-T1-PG-04">KU-KONSEP-T1-PG-04</a></td></tr><tr><td>7</td><td>Menghitung besar bunga</td><td>Sedang</td><td>Pilihan ganda</td><td><a href="#KU-BUNGA-T2-PG-01">KU-BUNGA-T2-PG-01</a>, <a href="#KU-BUNGA-T2-PG-02">KU-BUNGA-T2-PG-02</a>, <a href="#KU-BUNGA-T2-PG-03">KU-BUNGA-T2-PG-03</a>, <a href="#KU-BUNGA-T2-PG-04">KU-BUNGA-T2-PG-04</a></td></tr><tr><td>8</td><td>Menghitung jumlah tabungan akhir</td><td>Sedang</td><td>Pilihan ganda</td><td><a href="#KU-AKHIR-T2-PG-01">KU-AKHIR-T2-PG-01</a>, <a href="#KU-AKHIR-T2-PG-02">KU-AKHIR-T2-PG-02</a>, <a href="#KU-AKHIR-T2-PG-03">KU-AKHIR-T2-PG-03</a>, <a href="#KU-AKHIR-T2-PG-04">KU-AKHIR-T2-PG-04</a></td></tr><tr><td>9</td><td>Menentukan modal awal atau suku bunga</td><td>Sedang</td><td>Pilihan ganda</td><td><a href="#KU-MODALP-T2-PG-01">KU-MODALP-T2-PG-01</a>, <a href="#KU-MODALP-T2-PG-02">KU-MODALP-T2-PG-02</a></td></tr><tr><td>10</td><td>Menghitung lama menabung</td><td>Sedang</td><td>Isian angka</td><td><a href="#KU-LAMA-T2-IS-01">KU-LAMA-T2-IS-01</a>, <a href="#KU-LAMA-T2-IS-02">KU-LAMA-T2-IS-02</a></td></tr><tr><td>11</td><td>Konsep bunga tunggal</td><td>Sedang</td><td>Pilihan ganda</td><td><a href="#KU-KONSEP-T2-PG-01">KU-KONSEP-T2-PG-01</a>, <a href="#KU-KONSEP-T2-PG-02">KU-KONSEP-T2-PG-02</a></td></tr><tr><td>12</td><td>Menghitung besar bunga</td><td>Sedang</td><td>Isian angka</td><td><a href="#KU-BUNGA-T2-IS-01">KU-BUNGA-T2-IS-01</a>, <a href="#KU-BUNGA-T2-IS-02">KU-BUNGA-T2-IS-02</a></td></tr><tr><td>13</td><td>Menghitung jumlah tabungan akhir</td><td>Sedang</td><td>Pilihan ganda</td><td><a href="#KU-AKHIR-T2-PG-01">KU-AKHIR-T2-PG-01</a>, <a href="#KU-AKHIR-T2-PG-02">KU-AKHIR-T2-PG-02</a>, <a href="#KU-AKHIR-T2-PG-03">KU-AKHIR-T2-PG-03</a>, <a href="#KU-AKHIR-T2-PG-04">KU-AKHIR-T2-PG-04</a></td></tr><tr><td>14</td><td>Menentukan modal awal atau suku bunga</td><td>Sedang</td><td>Isian angka</td><td><a href="#KU-MODALP-T2-IS-01">KU-MODALP-T2-IS-01</a>, <a href="#KU-MODALP-T2-IS-02">KU-MODALP-T2-IS-02</a></td></tr><tr><td>15</td><td>Menghitung besar bunga</td><td>Sedang</td><td>Pilihan ganda</td><td><a href="#KU-BUNGA-T2-PG-01">KU-BUNGA-T2-PG-01</a>, <a href="#KU-BUNGA-T2-PG-02">KU-BUNGA-T2-PG-02</a>, <a href="#KU-BUNGA-T2-PG-03">KU-BUNGA-T2-PG-03</a>, <a href="#KU-BUNGA-T2-PG-04">KU-BUNGA-T2-PG-04</a></td></tr><tr><td>16</td><td>Penerapan dalam masalah sehari-hari</td><td>Sedang</td><td>Pilihan ganda</td><td><a href="#KU-TERAP-T2-PG-01">KU-TERAP-T2-PG-01</a>, <a href="#KU-TERAP-T2-PG-02">KU-TERAP-T2-PG-02</a></td></tr><tr><td>17</td><td>Menghitung besar bunga</td><td>Sulit</td><td>Isian angka</td><td><a href="#KU-BUNGA-T3-IS-01">KU-BUNGA-T3-IS-01</a>, <a href="#KU-BUNGA-T3-IS-02">KU-BUNGA-T3-IS-02</a></td></tr><tr><td>18</td><td>Menghitung jumlah tabungan akhir</td><td>Sulit</td><td>Isian angka</td><td><a href="#KU-AKHIR-T3-IS-01">KU-AKHIR-T3-IS-01</a>, <a href="#KU-AKHIR-T3-IS-02">KU-AKHIR-T3-IS-02</a></td></tr><tr><td>19</td><td>Menentukan modal awal atau suku bunga</td><td>Sulit</td><td>Pilihan ganda</td><td><a href="#KU-MODALP-T3-PG-01">KU-MODALP-T3-PG-01</a>, <a href="#KU-MODALP-T3-PG-02">KU-MODALP-T3-PG-02</a></td></tr><tr><td>20</td><td>Penerapan dalam masalah sehari-hari</td><td>Sulit</td><td>Pilihan ganda</td><td><a href="#KU-TERAP-T3-PG-01">KU-TERAP-T3-PG-01</a>, <a href="#KU-TERAP-T3-PG-02">KU-TERAP-T3-PG-02</a></td></tr></table>
+    <h3>Kecukupan per kombinasi (KF-14: minimal 2 × jumlah nomor)</h3>
+    <table><tr><th>Kombinasi</th><th>Nomor</th><th>Minimum</th><th>Tersedia</th><th>Status</th></tr><tr><td>Konsep bunga tunggal – Mudah – PG</td><td>1, 6</td><td>4</td><td>4</td><td class="kunci">cukup</td></tr><tr><td>Menghitung besar bunga – Mudah – PG</td><td>2</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menghitung jumlah tabungan akhir – Mudah – PG</td><td>3</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menentukan modal awal atau suku bunga – Mudah – PG</td><td>4</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menghitung lama menabung – Mudah – PG</td><td>5</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menghitung besar bunga – Sedang – PG</td><td>7, 15</td><td>4</td><td>4</td><td class="kunci">cukup</td></tr><tr><td>Menghitung jumlah tabungan akhir – Sedang – PG</td><td>8, 13</td><td>4</td><td>4</td><td class="kunci">cukup</td></tr><tr><td>Menentukan modal awal atau suku bunga – Sedang – PG</td><td>9</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menghitung lama menabung – Sedang – isian</td><td>10</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Konsep bunga tunggal – Sedang – PG</td><td>11</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menghitung besar bunga – Sedang – isian</td><td>12</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menentukan modal awal atau suku bunga – Sedang – isian</td><td>14</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Penerapan dalam masalah sehari-hari – Sedang – PG</td><td>16</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menghitung besar bunga – Sulit – isian</td><td>17</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menghitung jumlah tabungan akhir – Sulit – isian</td><td>18</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Menentukan modal awal atau suku bunga – Sulit – PG</td><td>19</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr><tr><td>Penerapan dalam masalah sehari-hari – Sulit – PG</td><td>20</td><td>2</td><td>2</td><td class="kunci">cukup</td></tr>
+      <tr><th colspan="2">Total</th><th>40</th><th>40</th><th></th></tr></table>
+    <p class="ket">Rincian: 30 pilihan ganda, 10 isian angka. Semua kombinasi tepat di batas minimum: jika satu soal ditolak, kombinasinya menjadi kurang dan kuis tidak bisa dimulai sampai soal pengganti ditambahkan.</p>
+    <h2>Rincian soal</h2>
+    <div class="kartu soal" id="KU-KONSEP-T1-PG-01">
+    <h3>KU-KONSEP-T1-PG-01 <span class="label">Nomor kisi-kisi 1 dan 6</span><span class="label">Konsep bunga tunggal</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M1 · Konteks: konsep</p>
+    <div class="kotak">Pada soal tabungan, apa arti modal awal (M)?</div>
+    <table>
+      
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Uang yang pertama kali ditabung</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Uang yang pertama kali ditabung</td><td class="kunci">KUNCI</td><td>M adalah uang yang pertama kali ditabung, sebelum ada bunga.</td></tr><tr><td>o2</td><td>Tambahan uang dari bank atau koperasi</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o3</td><td>Uang di tabungan setelah ditambah bunga</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o4</td><td>Persen bunga dalam satu tahun</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Pertanyaan ini menanyakan arti simbol M.</li><li><strong>Rencanakan:</strong> Ingat lima istilah: M modal awal, B besar bunga, p suku bunga per tahun, t lama menabung, A jumlah tabungan akhir.</li><li><strong>Hitung:</strong> M adalah uang yang pertama kali ditabung, sebelum ada bunga.</li><li><strong>Periksa:</strong> Tambahan uang adalah B, dan uang setelah ditambah bunga adalah jumlah tabungan akhir (A). Jadi jawabannya tepat.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Tepat satu opsi kunci</span> · <span class="ok">4 opsi berbeda</span> · <span class="ok">Pembahasan 4 langkah</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-KONSEP-T1-PG-02">
+    <h3>KU-KONSEP-T1-PG-02 <span class="label">Nomor kisi-kisi 1 dan 6</span><span class="label">Konsep bunga tunggal</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M1 · Konteks: konsep</p>
+    <div class="kotak">Suku bunga sebuah koperasi 6% per tahun. Bagaimana suku bunga ini dimasukkan ke rumus B = M × (p/100) × t?</div>
+    <table>
+      
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">p = 6, lalu dibagi 100 menjadi (6/100)</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>p = 6, lalu dibagi 100 menjadi (6/100)</td><td class="kunci">KUNCI</td><td>6% = 6/100 = 0,06, jadi bagian rumusnya (p/100) = (6/100).</td></tr><tr><td>o2</td><td>p = 0,6</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o3</td><td>p = 60</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o4</td><td>p = 6, tanpa dibagi 100</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Yang ditanya: cara menulis suku bunga 6% di rumus.</li><li><strong>Rencanakan:</strong> Di rumus, suku bunga ditulis sebagai angka persennya (p = 6), lalu dibagi 100.</li><li><strong>Hitung:</strong> 6% = 6/100 = 0,06, jadi bagian rumusnya (p/100) = (6/100).</li><li><strong>Periksa:</strong> Jika p tidak dibagi 100, bunganya menjadi 100 kali terlalu besar. Jadi jawabannya tepat.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Tepat satu opsi kunci</span> · <span class="ok">4 opsi berbeda</span> · <span class="ok">Pembahasan 4 langkah</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-KONSEP-T1-PG-03">
+    <h3>KU-KONSEP-T1-PG-03 <span class="label">Nomor kisi-kisi 1 dan 6</span><span class="label">Konsep bunga tunggal</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M1 · Konteks: konsep</p>
+    <div class="kotak">Pada bunga tunggal, bunga setiap tahun dihitung dari apa?</div>
+    <table>
+      
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Dari modal awal saja</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Dari modal awal saja</td><td class="kunci">KUNCI</td><td>Karena dasarnya selalu M, bunga setiap tahun sama besar.</td></tr><tr><td>o2</td><td>Dari jumlah tabungan akhir tahun sebelumnya</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o3</td><td>Dari bunga tahun sebelumnya</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o4</td><td>Dari suku bunga saja, tanpa modal</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Yang ditanya: dasar perhitungan bunga tunggal.</li><li><strong>Rencanakan:</strong> Rumus bunga tunggal B = M × (p/100) × t hanya memakai modal awal M.</li><li><strong>Hitung:</strong> Karena dasarnya selalu M, bunga setiap tahun sama besar.</li><li><strong>Periksa:</strong> Jika bunga dihitung dari tabungan akhir tahun sebelumnya, itu bukan bunga tunggal. Jadi jawabannya tepat.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Tepat satu opsi kunci</span> · <span class="ok">4 opsi berbeda</span> · <span class="ok">Pembahasan 4 langkah</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-KONSEP-T1-PG-04">
+    <h3>KU-KONSEP-T1-PG-04 <span class="label">Nomor kisi-kisi 1 dan 6</span><span class="label">Konsep bunga tunggal</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M1 · Konteks: konsep</p>
+    <div class="kotak">Apa yang dimaksud dengan jumlah tabungan akhir (A)?</div>
+    <table>
+      
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Modal awal ditambah besar bunga</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Modal awal ditambah besar bunga</td><td class="kunci">KUNCI</td><td>Jadi jumlah tabungan akhir = modal awal + besar bunga.</td></tr><tr><td>o2</td><td>Modal awal dikurangi besar bunga</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o3</td><td>Besar bunga saja</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o4</td><td>Modal awal dikali suku bunga</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Yang ditanya: arti jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Rumusnya A = M + B.</li><li><strong>Hitung:</strong> Jadi jumlah tabungan akhir = modal awal + besar bunga.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir selalu lebih besar dari modal awal jika ada bunga. Jadi jawabannya tepat.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Tepat satu opsi kunci</span> · <span class="ok">4 opsi berbeda</span> · <span class="ok">Pembahasan 4 langkah</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T1-PG-01">
+    <h3>KU-BUNGA-T1-PG-01 <span class="label">Nomor kisi-kisi 2</span><span class="label">Menghitung besar bunga</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M2 · Konteks: bank</p>
+    <div class="kotak">Joko menabung Rp2.000.000 di bank dengan suku bunga 5% per tahun. Berapa besar bunga yang Joko peroleh setelah 2 tahun?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.000.000; p = 5 (5% per tahun); lama = 2 tahun</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp200.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp200.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 2.000.000 × (5/100) × 2 = 200.000. Jadi besar bunga Rp200.000.</td></tr><tr><td>o2</td><td>Rp20.000.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 5% ditulis p/100 = 5/100 di dalam rumus.</td></tr><tr><td>o3</td><td>Rp2.200.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</td></tr><tr><td>o4</td><td>Rp100.000</td><td class="salah">Pengecoh</td><td>Pengecoh umum (tidak berasal dari pola kesalahan tertentu); siswa mendapat pesan umum.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.000.000, suku bunga p = 5 (5% per tahun), lama menabung 2 tahun. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> t = 2 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 2.000.000 × (5/100) × 2 = 200.000. Jadi besar bunga Rp200.000.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp100.000. Untuk 2 tahun, bunganya 2 × Rp100.000 = Rp200.000. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp200.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu tahun diubah ke tahun: t = lama</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T1-PG-02">
+    <h3>KU-BUNGA-T1-PG-02 <span class="label">Nomor kisi-kisi 2</span><span class="label">Menghitung besar bunga</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M2 · Konteks: koperasi</p>
+    <div class="kotak">Maya menabung Rp1.200.000 di koperasi dengan suku bunga 8% per tahun. Berapa besar bunga yang Maya peroleh setelah 1 tahun?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.200.000; p = 8 (8% per tahun); lama = 1 tahun</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp96.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp9.600.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 8% ditulis p/100 = 8/100 di dalam rumus.</td></tr><tr><td>o2</td><td>Rp96.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 1.200.000 × (8/100) × 1 = 96.000. Jadi besar bunga Rp96.000.</td></tr><tr><td>o3</td><td>Rp1.296.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</td></tr><tr><td>o4</td><td>Rp192.000</td><td class="salah">Pengecoh</td><td>Pengecoh umum (tidak berasal dari pola kesalahan tertentu); siswa mendapat pesan umum.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.200.000, suku bunga p = 8 (8% per tahun), lama menabung 1 tahun. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> t = 1 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 1.200.000 × (8/100) × 1 = 96.000. Jadi besar bunga Rp96.000.</li><li><strong>Periksa:</strong> Bunga 1 tahun adalah 8% dari modal awal, yaitu Rp96.000. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp96.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu tahun diubah ke tahun: t = lama</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T1-PG-01">
+    <h3>KU-AKHIR-T1-PG-01 <span class="label">Nomor kisi-kisi 3</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: bank desa</p>
+    <div class="kotak">Raka menabung Rp1.000.000 di bank desa dengan suku bunga 8% per tahun. Berapa jumlah tabungan Raka setelah 2 tahun?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.000.000; p = 8 (8% per tahun); lama = 2 tahun</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp1.160.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp17.000.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 8% ditulis p/100 = 8/100 di dalam rumus.</td></tr><tr><td>o2</td><td>Rp160.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</td></tr><tr><td>o3</td><td>Rp1.160.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 1.000.000 × (8/100) × 2 = 160.000. A = 1.000.000 + 160.000 = 1.160.000. Jadi jumlah tabungan akhir Rp1.160.000.</td></tr><tr><td>o4</td><td>Rp80.000</td><td class="salah">Pengecoh</td><td>Pengecoh umum (tidak berasal dari pola kesalahan tertentu); siswa mendapat pesan umum.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.000.000, suku bunga p = 8 (8% per tahun), lama menabung 2 tahun. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> t = 2 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 1.000.000 × (8/100) × 2 = 160.000. A = 1.000.000 + 160.000 = 1.160.000. Jadi jumlah tabungan akhir Rp1.160.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp160.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp1.160.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu tahun diubah ke tahun: t = lama</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T1-PG-02">
+    <h3>KU-AKHIR-T1-PG-02 <span class="label">Nomor kisi-kisi 3</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: koperasi sekolah</p>
+    <div class="kotak">Salsa menabung Rp2.500.000 di koperasi sekolah dengan suku bunga 4% per tahun. Berapa jumlah tabungan Salsa setelah 1 tahun?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.500.000; p = 4 (4% per tahun); lama = 1 tahun</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp2.600.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp12.500.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 4% ditulis p/100 = 4/100 di dalam rumus.</td></tr><tr><td>o2</td><td>Rp100.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</td></tr><tr><td>o3</td><td>Rp5.200.000</td><td class="salah">Pengecoh</td><td>Pengecoh umum (tidak berasal dari pola kesalahan tertentu); siswa mendapat pesan umum.</td></tr><tr><td>o4</td><td>Rp2.600.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 2.500.000 × (4/100) × 1 = 100.000. A = 2.500.000 + 100.000 = 2.600.000. Jadi jumlah tabungan akhir Rp2.600.000.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.500.000, suku bunga p = 4 (4% per tahun), lama menabung 1 tahun. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> t = 1 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 2.500.000 × (4/100) × 1 = 100.000. A = 2.500.000 + 100.000 = 2.600.000. Jadi jumlah tabungan akhir Rp2.600.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp100.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp2.600.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu tahun diubah ke tahun: t = lama</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T1-PG-01">
+    <h3>KU-MODALP-T1-PG-01 <span class="label">Nomor kisi-kisi 4</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: bank</p>
+    <div class="kotak">Tono menabung Rp2.000.000 di bank. Setelah 2 tahun, ia mendapat bunga Rp200.000. Berapa suku bunga per tahunnya?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.000.000; lama = 2 tahun; B = Rp200.000</td></tr>
+      <tr><th>Ditanya</th><td>Suku bunga per tahun (p)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">5% per tahun</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>5% per tahun</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: p = (200.000 × 100) ÷ (2.000.000 × 2) = 5. Jadi suku bunganya 5% per tahun.</td></tr><tr><td>o2</td><td>0,05% per tahun</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Hasil baginya masih berupa pecahan. Kalikan dengan 100 agar menjadi persen: p = (B × 100) ÷ (M × t).</td></tr><tr><td>o3</td><td>10% per tahun</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari suku bunga, gunakan p = (B × 100) ÷ (M × t). Jangan lupa membagi dengan lama menabung.</td></tr><tr><td>o4</td><td>2,5% per tahun</td><td class="salah">Pengecoh</td><td>Pengecoh umum (tidak berasal dari pola kesalahan tertentu); siswa mendapat pesan umum.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.000.000, lama menabung 2 tahun, besar bunga B = Rp200.000. Ditanya: suku bunga per tahun (p).</li><li><strong>Rencanakan:</strong> t = 2 tahun. Rumus: p = (B × 100) ÷ (M × t).</li><li><strong>Hitung:</strong> p = (200.000 × 100) ÷ (2.000.000 × 2) = 5. Jadi suku bunganya 5% per tahun.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 2.000.000 × (5/100) × 2 = Rp200.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 5% per tahun</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan persen</span> · <span class="ok">Satuan waktu tahun diubah ke tahun: t = lama</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T1-PG-02">
+    <h3>KU-MODALP-T1-PG-02 <span class="label">Nomor kisi-kisi 4</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: koperasi</p>
+    <div class="kotak">Umi menabung di koperasi dengan suku bunga 10% per tahun. Setelah 1 tahun, ia mendapat bunga Rp120.000. Berapa modal awal Umi?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>p = 10 (10% per tahun); lama = 1 tahun; B = Rp120.000</td></tr>
+      <tr><th>Ditanya</th><td>Modal awal (M)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp1.200.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp12.000</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari modal awal, bagi besar bunga dengan ((p/100) × t), jangan dikalikan.</td></tr><tr><td>o2</td><td>Rp1.200.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: (p/100) × t = (10/100) × 1 = 0,1. M = 120.000 ÷ 0,1 = 1.200.000. Jadi modal awal Rp1.200.000.</td></tr><tr><td>o3</td><td>Rp120.000</td><td class="salah">Pengecoh</td><td>Pengecoh umum (tidak berasal dari pola kesalahan tertentu); siswa mendapat pesan umum.</td></tr><tr><td>o4</td><td>Rp1.320.000</td><td class="salah">Pengecoh</td><td>Pengecoh umum (tidak berasal dari pola kesalahan tertentu); siswa mendapat pesan umum.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui suku bunga p = 10 (10% per tahun), lama menabung 1 tahun, besar bunga B = Rp120.000. Ditanya: modal awal (M).</li><li><strong>Rencanakan:</strong> t = 1 tahun. Rumus: M = B ÷ ((p/100) × t).</li><li><strong>Hitung:</strong> (p/100) × t = (10/100) × 1 = 0,1. M = 120.000 ÷ 0,1 = 1.200.000. Jadi modal awal Rp1.200.000.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 1.200.000 × (10/100) × 1 = Rp120.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp1.200.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu tahun diubah ke tahun: t = lama</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-LAMA-T1-PG-01">
+    <h3>KU-LAMA-T1-PG-01 <span class="label">Nomor kisi-kisi 5</span><span class="label">Menghitung lama menabung</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: koperasi sekolah</p>
+    <div class="kotak">Vina menabung Rp1.000.000 di koperasi sekolah dengan suku bunga 6% per tahun. Setelah beberapa waktu, ia mendapat bunga Rp120.000. Berapa tahun Vina menabung?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.000.000; p = 6 (6% per tahun); B = Rp120.000</td></tr>
+      <tr><th>Ditanya</th><td>Lama menabung (t), dalam tahun</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">2 tahun</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>24 tahun</td><td class="salah">Pengecoh</td><td>Satuan waktu: Perhatikan satuan yang ditanya. Jawaban diminta dalam tahun, bukan bulan.</td></tr><tr><td>o2</td><td>0,02 tahun</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</td></tr><tr><td>o3</td><td>2 tahun</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: t = (120.000 × 100) ÷ (1.000.000 × 6) = 2 tahun. Jadi lama menabung 2 tahun.</td></tr><tr><td>o4</td><td>0,5 tahun</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari lama menabung, gunakan t = (B × 100) ÷ (M × p), jangan dibalik.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.000.000, suku bunga p = 6 (6% per tahun), besar bunga B = Rp120.000. Ditanya: lama menabung (dalam tahun).</li><li><strong>Rencanakan:</strong> Rumus: t = (B × 100) ÷ (M × p).</li><li><strong>Hitung:</strong> t = (120.000 × 100) ÷ (1.000.000 × 6) = 2 tahun. Jadi lama menabung 2 tahun.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 1.000.000 × (6/100) × 2 = Rp120.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 2 tahun</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan tahun</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung lama menabung)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-LAMA-T1-PG-02">
+    <h3>KU-LAMA-T1-PG-02 <span class="label">Nomor kisi-kisi 5</span><span class="label">Menghitung lama menabung</span><span class="label">Mudah</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: bank</p>
+    <div class="kotak">Wahyu menabung Rp2.000.000 di bank dengan suku bunga 5% per tahun. Setelah beberapa waktu, ia mendapat bunga Rp300.000. Berapa tahun Wahyu menabung?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.000.000; p = 5 (5% per tahun); B = Rp300.000</td></tr>
+      <tr><th>Ditanya</th><td>Lama menabung (t), dalam tahun</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">3 tahun</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>36 tahun</td><td class="salah">Pengecoh</td><td>Satuan waktu: Perhatikan satuan yang ditanya. Jawaban diminta dalam tahun, bukan bulan.</td></tr><tr><td>o2</td><td>0,03 tahun</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 5% ditulis p/100 = 5/100 di dalam rumus.</td></tr><tr><td>o3</td><td>0,33 tahun</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari lama menabung, gunakan t = (B × 100) ÷ (M × p), jangan dibalik.</td></tr><tr><td>o4</td><td>3 tahun</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: t = (300.000 × 100) ÷ (2.000.000 × 5) = 3 tahun. Jadi lama menabung 3 tahun.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.000.000, suku bunga p = 5 (5% per tahun), besar bunga B = Rp300.000. Ditanya: lama menabung (dalam tahun).</li><li><strong>Rencanakan:</strong> Rumus: t = (B × 100) ÷ (M × p).</li><li><strong>Hitung:</strong> t = (300.000 × 100) ÷ (2.000.000 × 5) = 3 tahun. Jadi lama menabung 3 tahun.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 2.000.000 × (5/100) × 3 = Rp300.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 3 tahun</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan tahun</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung lama menabung)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T2-PG-01">
+    <h3>KU-BUNGA-T2-PG-01 <span class="label">Nomor kisi-kisi 7 dan 15</span><span class="label">Menghitung besar bunga</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: koperasi</p>
+    <div class="kotak">Yoga menabung Rp1.800.000 di koperasi dengan suku bunga 6% per tahun. Berapa besar bunga yang Yoga peroleh setelah 8 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.800.000; p = 6 (6% per tahun); lama = 8 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp72.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp72.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 1.800.000 × (6/100) × (8/12) = 72.000. Jadi besar bunga Rp72.000.</td></tr><tr><td>o2</td><td>Rp864.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 8 bulan = 8/12 tahun.</td></tr><tr><td>o3</td><td>Rp7.200.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</td></tr><tr><td>o4</td><td>Rp1.872.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.800.000, suku bunga p = 6 (6% per tahun), lama menabung 8 bulan. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 8/12 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 1.800.000 × (6/100) × (8/12) = 72.000. Jadi besar bunga Rp72.000.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp108.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp72.000 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp72.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T2-PG-02">
+    <h3>KU-BUNGA-T2-PG-02 <span class="label">Nomor kisi-kisi 7 dan 15</span><span class="label">Menghitung besar bunga</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: bank</p>
+    <div class="kotak">Zahra menabung Rp2.400.000 di bank dengan suku bunga 7% per tahun. Berapa besar bunga yang Zahra peroleh setelah 6 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.400.000; p = 7 (7% per tahun); lama = 6 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp84.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp1.008.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 6 bulan = 6/12 tahun.</td></tr><tr><td>o2</td><td>Rp84.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 2.400.000 × (7/100) × (6/12) = 84.000. Jadi besar bunga Rp84.000.</td></tr><tr><td>o3</td><td>Rp8.400.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 7% ditulis p/100 = 7/100 di dalam rumus.</td></tr><tr><td>o4</td><td>Rp2.484.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.400.000, suku bunga p = 7 (7% per tahun), lama menabung 6 bulan. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 6/12 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 2.400.000 × (7/100) × (6/12) = 84.000. Jadi besar bunga Rp84.000.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp168.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp84.000 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp84.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T2-PG-03">
+    <h3>KU-BUNGA-T2-PG-03 <span class="label">Nomor kisi-kisi 7 dan 15</span><span class="label">Menghitung besar bunga</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: bank desa</p>
+    <div class="kotak">Rani menabung Rp3.000.000 di bank desa dengan suku bunga 5% per tahun. Berapa besar bunga yang Rani peroleh setelah 9 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp3.000.000; p = 5 (5% per tahun); lama = 9 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp112.500</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp1.350.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 9 bulan = 9/12 tahun.</td></tr><tr><td>o2</td><td>Rp11.250.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 5% ditulis p/100 = 5/100 di dalam rumus.</td></tr><tr><td>o3</td><td>Rp112.500</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 3.000.000 × (5/100) × (9/12) = 112.500. Jadi besar bunga Rp112.500.</td></tr><tr><td>o4</td><td>Rp3.112.500</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp3.000.000, suku bunga p = 5 (5% per tahun), lama menabung 9 bulan. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 9/12 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 3.000.000 × (5/100) × (9/12) = 112.500. Jadi besar bunga Rp112.500.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp150.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp112.500 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp112.500</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T2-PG-04">
+    <h3>KU-BUNGA-T2-PG-04 <span class="label">Nomor kisi-kisi 7 dan 15</span><span class="label">Menghitung besar bunga</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: koperasi sekolah</p>
+    <div class="kotak">Budi menabung Rp1.200.000 di koperasi sekolah dengan suku bunga 9% per tahun. Berapa besar bunga yang Budi peroleh setelah 4 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.200.000; p = 9 (9% per tahun); lama = 4 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp36.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp432.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 4 bulan = 4/12 tahun.</td></tr><tr><td>o2</td><td>Rp3.600.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 9% ditulis p/100 = 9/100 di dalam rumus.</td></tr><tr><td>o3</td><td>Rp1.236.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</td></tr><tr><td>o4</td><td>Rp36.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 1.200.000 × (9/100) × (4/12) = 36.000. Jadi besar bunga Rp36.000.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.200.000, suku bunga p = 9 (9% per tahun), lama menabung 4 bulan. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 4/12 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 1.200.000 × (9/100) × (4/12) = 36.000. Jadi besar bunga Rp36.000.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp108.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp36.000 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp36.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T2-PG-01">
+    <h3>KU-AKHIR-T2-PG-01 <span class="label">Nomor kisi-kisi 8 dan 13</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: bank</p>
+    <div class="kotak">Sinta menabung Rp1.500.000 di bank dengan suku bunga 6% per tahun. Berapa jumlah tabungan Sinta setelah 8 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.500.000; p = 6 (6% per tahun); lama = 8 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp1.560.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp1.560.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 1.500.000 × (6/100) × (8/12) = 60.000. A = 1.500.000 + 60.000 = 1.560.000. Jadi jumlah tabungan akhir Rp1.560.000.</td></tr><tr><td>o2</td><td>Rp2.220.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 8 bulan = 8/12 tahun.</td></tr><tr><td>o3</td><td>Rp7.500.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</td></tr><tr><td>o4</td><td>Rp60.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.500.000, suku bunga p = 6 (6% per tahun), lama menabung 8 bulan. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 8/12 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 1.500.000 × (6/100) × (8/12) = 60.000. A = 1.500.000 + 60.000 = 1.560.000. Jadi jumlah tabungan akhir Rp1.560.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp60.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp1.560.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T2-PG-02">
+    <h3>KU-AKHIR-T2-PG-02 <span class="label">Nomor kisi-kisi 8 dan 13</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: koperasi</p>
+    <div class="kotak">Dimas menabung Rp2.000.000 di koperasi dengan suku bunga 9% per tahun. Berapa jumlah tabungan Dimas setelah 4 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.000.000; p = 9 (9% per tahun); lama = 4 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp2.060.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp2.720.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 4 bulan = 4/12 tahun.</td></tr><tr><td>o2</td><td>Rp2.060.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 2.000.000 × (9/100) × (4/12) = 60.000. A = 2.000.000 + 60.000 = 2.060.000. Jadi jumlah tabungan akhir Rp2.060.000.</td></tr><tr><td>o3</td><td>Rp8.000.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 9% ditulis p/100 = 9/100 di dalam rumus.</td></tr><tr><td>o4</td><td>Rp60.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.000.000, suku bunga p = 9 (9% per tahun), lama menabung 4 bulan. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 4/12 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 2.000.000 × (9/100) × (4/12) = 60.000. A = 2.000.000 + 60.000 = 2.060.000. Jadi jumlah tabungan akhir Rp2.060.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp60.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp2.060.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T2-PG-03">
+    <h3>KU-AKHIR-T2-PG-03 <span class="label">Nomor kisi-kisi 8 dan 13</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: bank desa</p>
+    <div class="kotak">Ayu menabung Rp3.600.000 di bank desa dengan suku bunga 5% per tahun. Berapa jumlah tabungan Ayu setelah 6 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp3.600.000; p = 5 (5% per tahun); lama = 6 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp3.690.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp4.680.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 6 bulan = 6/12 tahun.</td></tr><tr><td>o2</td><td>Rp12.600.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 5% ditulis p/100 = 5/100 di dalam rumus.</td></tr><tr><td>o3</td><td>Rp3.690.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 3.600.000 × (5/100) × (6/12) = 90.000. A = 3.600.000 + 90.000 = 3.690.000. Jadi jumlah tabungan akhir Rp3.690.000.</td></tr><tr><td>o4</td><td>Rp90.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp3.600.000, suku bunga p = 5 (5% per tahun), lama menabung 6 bulan. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 6/12 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 3.600.000 × (5/100) × (6/12) = 90.000. A = 3.600.000 + 90.000 = 3.690.000. Jadi jumlah tabungan akhir Rp3.690.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp90.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp3.690.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T2-PG-04">
+    <h3>KU-AKHIR-T2-PG-04 <span class="label">Nomor kisi-kisi 8 dan 13</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: koperasi sekolah</p>
+    <div class="kotak">Bayu menabung Rp2.400.000 di koperasi sekolah dengan suku bunga 8% per tahun. Berapa jumlah tabungan Bayu setelah 3 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.400.000; p = 8 (8% per tahun); lama = 3 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp2.448.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp2.976.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 3 bulan = 3/12 tahun.</td></tr><tr><td>o2</td><td>Rp7.200.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 8% ditulis p/100 = 8/100 di dalam rumus.</td></tr><tr><td>o3</td><td>Rp48.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</td></tr><tr><td>o4</td><td>Rp2.448.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 2.400.000 × (8/100) × (3/12) = 48.000. A = 2.400.000 + 48.000 = 2.448.000. Jadi jumlah tabungan akhir Rp2.448.000.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.400.000, suku bunga p = 8 (8% per tahun), lama menabung 3 bulan. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 3/12 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 2.400.000 × (8/100) × (3/12) = 48.000. A = 2.400.000 + 48.000 = 2.448.000. Jadi jumlah tabungan akhir Rp2.448.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp48.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp2.448.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T2-PG-01">
+    <h3>KU-MODALP-T2-PG-01 <span class="label">Nomor kisi-kisi 9</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: bank</p>
+    <div class="kotak">Lina menabung di bank dengan suku bunga 6% per tahun. Setelah 9 bulan, ia mendapat bunga Rp72.000. Berapa modal awal Lina?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>p = 6 (6% per tahun); lama = 9 bulan; B = Rp72.000</td></tr>
+      <tr><th>Ditanya</th><td>Modal awal (M)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp1.600.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp1.600.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: (p/100) × t = (6/100) × (9/12) = 0,04. M = 72.000 ÷ 0,04 = 1.600.000. Jadi modal awal Rp1.600.000.</td></tr><tr><td>o2</td><td>Rp3.240</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari modal awal, bagi besar bunga dengan ((p/100) × t), jangan dikalikan.</td></tr><tr><td>o3</td><td>Rp133.333</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 9 bulan = 9/12 tahun.</td></tr><tr><td>o4</td><td>Rp16.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui suku bunga p = 6 (6% per tahun), lama menabung 9 bulan, besar bunga B = Rp72.000. Ditanya: modal awal (M).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 9/12 tahun. Rumus: M = B ÷ ((p/100) × t).</li><li><strong>Hitung:</strong> (p/100) × t = (6/100) × (9/12) = 0,04. M = 72.000 ÷ 0,04 = 1.600.000. Jadi modal awal Rp1.600.000.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 1.600.000 × (6/100) × (9/12) = Rp72.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp1.600.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T2-PG-02">
+    <h3>KU-MODALP-T2-PG-02 <span class="label">Nomor kisi-kisi 9</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: koperasi</p>
+    <div class="kotak">Tia menabung Rp2.000.000 di koperasi. Setelah 8 bulan, ia mendapat bunga Rp120.000. Berapa suku bunga per tahunnya?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.000.000; lama = 8 bulan; B = Rp120.000</td></tr>
+      <tr><th>Ditanya</th><td>Suku bunga per tahun (p)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">9% per tahun</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>0,09% per tahun</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Hasil baginya masih berupa pecahan. Kalikan dengan 100 agar menjadi persen: p = (B × 100) ÷ (M × t).</td></tr><tr><td>o2</td><td>9% per tahun</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: p = (120.000 × 100) ÷ (2.000.000 × (8/12)) = 9. Jadi suku bunganya 9% per tahun.</td></tr><tr><td>o3</td><td>0,75% per tahun</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 8 bulan = 8/12 tahun.</td></tr><tr><td>o4</td><td>6% per tahun</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari suku bunga, gunakan p = (B × 100) ÷ (M × t). Jangan lupa membagi dengan lama menabung.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.000.000, lama menabung 8 bulan, besar bunga B = Rp120.000. Ditanya: suku bunga per tahun (p).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 8/12 tahun. Rumus: p = (B × 100) ÷ (M × t).</li><li><strong>Hitung:</strong> p = (120.000 × 100) ÷ (2.000.000 × (8/12)) = 9. Jadi suku bunganya 9% per tahun.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 2.000.000 × (9/100) × (8/12) = Rp120.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 9% per tahun</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan persen</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-LAMA-T2-IS-01">
+    <h3>KU-LAMA-T2-IS-01 <span class="label">Nomor kisi-kisi 10</span><span class="label">Menghitung lama menabung</span><span class="label">Sedang</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: bank</p>
+    <div class="kotak">Kiki menabung Rp2.400.000 di bank dengan suku bunga 6% per tahun. Setelah beberapa waktu, ia mendapat bunga Rp108.000. Berapa bulan Kiki menabung?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.400.000; p = 6 (6% per tahun); B = Rp108.000</td></tr>
+      <tr><th>Ditanya</th><td>Lama menabung (t), dalam bulan</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">9 bulan <span class="ket">(diterima ±0,01 bulan)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">0,75 bulan</span> — Satuan waktu: Perhatikan satuan yang ditanya. Jawaban diminta dalam bulan. Ubah hasil dalam tahun ke bulan.</div><div><span class="salah">0,09 bulan</span> — Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</div><div><span class="salah">16 bulan</span> — Rumus invers salah susun: Untuk mencari lama menabung, gunakan t = (B × 100) ÷ (M × p), jangan dibalik.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.400.000, suku bunga p = 6 (6% per tahun), besar bunga B = Rp108.000. Ditanya: lama menabung (dalam bulan).</li><li><strong>Rencanakan:</strong> Rumus: t = (B × 100) ÷ (M × p).</li><li><strong>Hitung:</strong> t = (108.000 × 100) ÷ (2.400.000 × 6) = 0,75 tahun. Ubah ke bulan: 0,75 × 12 = 9 bulan. Jadi lama menabung 9 bulan.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 2.400.000 × (6/100) × (9/12) = Rp108.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 9 bulan</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan bulan</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung lama menabung)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-LAMA-T2-IS-02">
+    <h3>KU-LAMA-T2-IS-02 <span class="label">Nomor kisi-kisi 10</span><span class="label">Menghitung lama menabung</span><span class="label">Sedang</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: koperasi</p>
+    <div class="kotak">Lukman menabung Rp3.000.000 di koperasi dengan suku bunga 8% per tahun. Setelah beberapa waktu, ia mendapat bunga Rp60.000. Berapa bulan Lukman menabung?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp3.000.000; p = 8 (8% per tahun); B = Rp60.000</td></tr>
+      <tr><th>Ditanya</th><td>Lama menabung (t), dalam bulan</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">3 bulan <span class="ket">(diterima ±0,01 bulan)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">0,25 bulan</span> — Satuan waktu: Perhatikan satuan yang ditanya. Jawaban diminta dalam bulan. Ubah hasil dalam tahun ke bulan.</div><div><span class="salah">0,03 bulan</span> — Persen tidak dibagi 100: Ingat, suku bunga 8% ditulis p/100 = 8/100 di dalam rumus.</div><div><span class="salah">48 bulan</span> — Rumus invers salah susun: Untuk mencari lama menabung, gunakan t = (B × 100) ÷ (M × p), jangan dibalik.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp3.000.000, suku bunga p = 8 (8% per tahun), besar bunga B = Rp60.000. Ditanya: lama menabung (dalam bulan).</li><li><strong>Rencanakan:</strong> Rumus: t = (B × 100) ÷ (M × p).</li><li><strong>Hitung:</strong> t = (60.000 × 100) ÷ (3.000.000 × 8) = 0,25 tahun. Ubah ke bulan: 0,25 × 12 = 3 bulan. Jadi lama menabung 3 bulan.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 3.000.000 × (8/100) × (3/12) = Rp60.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 3 bulan</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan bulan</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung lama menabung)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-KONSEP-T2-PG-01">
+    <h3>KU-KONSEP-T2-PG-01 <span class="label">Nomor kisi-kisi 11</span><span class="label">Konsep bunga tunggal</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M1 · Konteks: konsep</p>
+    <div class="kotak">Lama menabung 8 bulan. Nilai t yang dimasukkan ke rumus B = M × (p/100) × t adalah ....</div>
+    <table>
+      
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">t = 8/12</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>t = 8/12</td><td class="kunci">KUNCI</td><td>t = banyak bulan ÷ 12 = 8/12 tahun.</td></tr><tr><td>o2</td><td>t = 8</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o3</td><td>t = 8/365</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o4</td><td>t = 12/8</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Yang ditanya: nilai t untuk lama menabung 8 bulan.</li><li><strong>Rencanakan:</strong> Suku bunga per tahun, jadi t harus dalam tahun. 1 tahun = 12 bulan.</li><li><strong>Hitung:</strong> t = banyak bulan ÷ 12 = 8/12 tahun.</li><li><strong>Periksa:</strong> Memakai t = 8 membuat bunga 12 kali terlalu besar. Jadi jawabannya tepat.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Tepat satu opsi kunci</span> · <span class="ok">4 opsi berbeda</span> · <span class="ok">Pembahasan 4 langkah</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-KONSEP-T2-PG-02">
+    <h3>KU-KONSEP-T2-PG-02 <span class="label">Nomor kisi-kisi 11</span><span class="label">Konsep bunga tunggal</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M1 · Konteks: konsep</p>
+    <div class="kotak">Modal awal Rp1.000.000 dengan suku bunga 10% per tahun (bunga tunggal). Pernyataan mana yang benar?</div>
+    <table>
+      
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Bunganya bertambah Rp100.000 setiap tahun</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Bunganya bertambah Rp100.000 setiap tahun</td><td class="kunci">KUNCI</td><td>B = 1.000.000 × (10/100) × 1 = Rp100.000 setiap tahun.</td></tr><tr><td>o2</td><td>Bunga tahun kedua lebih besar daripada bunga tahun pertama</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o3</td><td>Bunga tahun kedua Rp110.000</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr><tr><td>o4</td><td>Bunga hanya diberikan pada tahun pertama</td><td class="salah">Pengecoh</td><td>Pernyataan tidak tepat; alasannya dijelaskan di langkah Periksa pada pembahasan.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Yang ditanya: sifat bunga tunggal untuk M = Rp1.000.000 dan p = 10.</li><li><strong>Rencanakan:</strong> Bunga 1 tahun = M × (p/100) × 1.</li><li><strong>Hitung:</strong> B = 1.000.000 × (10/100) × 1 = Rp100.000 setiap tahun.</li><li><strong>Periksa:</strong> Pada bunga tunggal, bunga dihitung dari modal awal saja, jadi bunga setiap tahun sama. Jadi jawabannya tepat.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Tepat satu opsi kunci</span> · <span class="ok">4 opsi berbeda</span> · <span class="ok">Pembahasan 4 langkah</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T2-IS-01">
+    <h3>KU-BUNGA-T2-IS-01 <span class="label">Nomor kisi-kisi 12</span><span class="label">Menghitung besar bunga</span><span class="label">Sedang</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: bank desa</p>
+    <div class="kotak">Maya menabung Rp2.700.000 di bank desa dengan suku bunga 8% per tahun. Berapa besar bunga yang Maya peroleh setelah 4 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.700.000; p = 8 (8% per tahun); lama = 4 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp72.000 <span class="ket">(diterima ±1 rupiah)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">Rp864.000</span> — Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 4 bulan = 4/12 tahun.</div><div><span class="salah">Rp7.200.000</span> — Persen tidak dibagi 100: Ingat, suku bunga 8% ditulis p/100 = 8/100 di dalam rumus.</div><div><span class="salah">Rp2.772.000</span> — Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.700.000, suku bunga p = 8 (8% per tahun), lama menabung 4 bulan. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 4/12 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 2.700.000 × (8/100) × (4/12) = 72.000. Jadi besar bunga Rp72.000.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp216.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp72.000 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp72.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T2-IS-02">
+    <h3>KU-BUNGA-T2-IS-02 <span class="label">Nomor kisi-kisi 12</span><span class="label">Menghitung besar bunga</span><span class="label">Sedang</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: koperasi sekolah</p>
+    <div class="kotak">Nanda menabung Rp1.500.000 di koperasi sekolah dengan suku bunga 6% per tahun. Berapa besar bunga yang Nanda peroleh setelah 10 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.500.000; p = 6 (6% per tahun); lama = 10 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp75.000 <span class="ket">(diterima ±1 rupiah)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">Rp900.000</span> — Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 10 bulan = 10/12 tahun.</div><div><span class="salah">Rp7.500.000</span> — Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</div><div><span class="salah">Rp1.575.000</span> — Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.500.000, suku bunga p = 6 (6% per tahun), lama menabung 10 bulan. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 10/12 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 1.500.000 × (6/100) × (10/12) = 75.000. Jadi besar bunga Rp75.000.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp90.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp75.000 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp75.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T2-IS-01">
+    <h3>KU-MODALP-T2-IS-01 <span class="label">Nomor kisi-kisi 14</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Sedang</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: bank</p>
+    <div class="kotak">Oki menabung Rp1.800.000 di bank. Setelah 6 bulan, ia mendapat bunga Rp63.000. Berapa suku bunga per tahunnya?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.800.000; lama = 6 bulan; B = Rp63.000</td></tr>
+      <tr><th>Ditanya</th><td>Suku bunga per tahun (p)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">7% per tahun <span class="ket">(diterima ±0,01 persen)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">0,07% per tahun</span> — Persen tidak dibagi 100: Hasil baginya masih berupa pecahan. Kalikan dengan 100 agar menjadi persen: p = (B × 100) ÷ (M × t).</div><div><span class="salah">0,58% per tahun</span> — Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 6 bulan = 6/12 tahun.</div><div><span class="salah">3,5% per tahun</span> — Rumus invers salah susun: Untuk mencari suku bunga, gunakan p = (B × 100) ÷ (M × t). Jangan lupa membagi dengan lama menabung.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.800.000, lama menabung 6 bulan, besar bunga B = Rp63.000. Ditanya: suku bunga per tahun (p).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 6/12 tahun. Rumus: p = (B × 100) ÷ (M × t).</li><li><strong>Hitung:</strong> p = (63.000 × 100) ÷ (1.800.000 × (6/12)) = 7. Jadi suku bunganya 7% per tahun.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 1.800.000 × (7/100) × (6/12) = Rp63.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 7% per tahun</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan persen</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T2-IS-02">
+    <h3>KU-MODALP-T2-IS-02 <span class="label">Nomor kisi-kisi 14</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Sedang</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: koperasi</p>
+    <div class="kotak">Putri menabung di koperasi dengan suku bunga 6% per tahun. Setelah 6 bulan, ia mendapat bunga Rp84.000. Berapa modal awal Putri?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>p = 6 (6% per tahun); lama = 6 bulan; B = Rp84.000</td></tr>
+      <tr><th>Ditanya</th><td>Modal awal (M)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp2.800.000 <span class="ket">(diterima ±1 rupiah)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">Rp2.520</span> — Rumus invers salah susun: Untuk mencari modal awal, bagi besar bunga dengan ((p/100) × t), jangan dikalikan.</div><div><span class="salah">Rp233.333</span> — Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 6 bulan = 6/12 tahun.</div><div><span class="salah">Rp28.000</span> — Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui suku bunga p = 6 (6% per tahun), lama menabung 6 bulan, besar bunga B = Rp84.000. Ditanya: modal awal (M).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 6/12 tahun. Rumus: M = B ÷ ((p/100) × t).</li><li><strong>Hitung:</strong> (p/100) × t = (6/100) × (6/12) = 0,03. M = 84.000 ÷ 0,03 = 2.800.000. Jadi modal awal Rp2.800.000.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 2.800.000 × (6/100) × (6/12) = Rp84.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp2.800.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-TERAP-T2-PG-01">
+    <h3>KU-TERAP-T2-PG-01 <span class="label">Nomor kisi-kisi 16</span><span class="label">Penerapan dalam masalah sehari-hari</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M6 · Konteks: koperasi sekolah</p>
+    <div class="kotak">Nina ingin membeli sepeda seharga Rp1.260.000. Ia menabung Rp1.200.000 di koperasi sekolah dengan suku bunga 10% per tahun. Setelah berapa bulan jumlah tabungannya tepat cukup untuk membeli sepeda?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.200.000; p = 10 (10% per tahun); jumlah tabungan akhir (A) = Rp1.260.000</td></tr>
+      <tr><th>Ditanya</th><td>Lama menabung (t), dalam bulan</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">6 bulan</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>0,5 bulan</td><td class="salah">Pengecoh</td><td>Satuan waktu: Perhatikan satuan yang ditanya. Jawaban diminta dalam bulan. Ubah hasil dalam tahun ke bulan.</td></tr><tr><td>o2</td><td>0,06 bulan</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 10% ditulis p/100 = 10/100 di dalam rumus.</td></tr><tr><td>o3</td><td>6 bulan</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 1.260.000 − 1.200.000 = 60.000. t = (60.000 × 100) ÷ (1.200.000 × 10) = 0,5 tahun. Ubah ke bulan: 0,5 × 12 = 6 bulan. Jadi lama menabung 6 bulan.</td></tr><tr><td>o4</td><td>24 bulan</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari lama menabung, gunakan t = (B × 100) ÷ (M × p), jangan dibalik.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.200.000, suku bunga p = 10 (10% per tahun), jumlah tabungan akhir (A) = Rp1.260.000. Ditanya: lama menabung (dalam bulan).</li><li><strong>Rencanakan:</strong> Rumus: B = A − M, lalu t = (B × 100) ÷ (M × p).</li><li><strong>Hitung:</strong> B = 1.260.000 − 1.200.000 = 60.000. t = (60.000 × 100) ÷ (1.200.000 × 10) = 0,5 tahun. Ubah ke bulan: 0,5 × 12 = 6 bulan. Jadi lama menabung 6 bulan.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 1.200.000 × (10/100) × (6/12) = Rp60.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 6 bulan</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan bulan</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-TERAP-T2-PG-02">
+    <h3>KU-TERAP-T2-PG-02 <span class="label">Nomor kisi-kisi 16</span><span class="label">Penerapan dalam masalah sehari-hari</span><span class="label">Sedang</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M6 · Konteks: bank</p>
+    <div class="kotak">Fajar menabung Rp2.200.000 di bank untuk membeli ponsel. Suku bunganya 6% per tahun. Berapa jumlah tabungan akhir Fajar setelah 9 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.200.000; p = 6 (6% per tahun); lama = 9 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp2.299.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp3.388.000</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 9 bulan = 9/12 tahun.</td></tr><tr><td>o2</td><td>Rp12.100.000</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</td></tr><tr><td>o3</td><td>Rp99.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</td></tr><tr><td>o4</td><td>Rp2.299.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 2.200.000 × (6/100) × (9/12) = 99.000. A = 2.200.000 + 99.000 = 2.299.000. Jadi jumlah tabungan akhir Rp2.299.000.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.200.000, suku bunga p = 6 (6% per tahun), lama menabung 9 bulan. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 9/12 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 2.200.000 × (6/100) × (9/12) = 99.000. A = 2.200.000 + 99.000 = 2.299.000. Jadi jumlah tabungan akhir Rp2.299.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp99.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp2.299.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T3-IS-01">
+    <h3>KU-BUNGA-T3-IS-01 <span class="label">Nomor kisi-kisi 17</span><span class="label">Menghitung besar bunga</span><span class="label">Sulit</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: bank</p>
+    <div class="kotak">Raka menabung Rp2.190.000 di bank dengan suku bunga 10% per tahun. Berapa besar bunga yang Raka peroleh setelah 73 hari?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp2.190.000; p = 10 (10% per tahun); lama = 73 hari</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp43.800 <span class="ket">(diterima ±1 rupiah)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">Rp15.987.000</span> — Satuan waktu: Lama menabung dalam hari. Ubah dulu ke tahun: 73 hari = 73/365 tahun.</div><div><span class="salah">Rp4.380.000</span> — Persen tidak dibagi 100: Ingat, suku bunga 10% ditulis p/100 = 10/100 di dalam rumus.</div><div><span class="salah">Rp2.233.800</span> — Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp2.190.000, suku bunga p = 10 (10% per tahun), lama menabung 73 hari. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam hari, jadi t = 73/365 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 2.190.000 × (10/100) × (73/365) = 43.800. Jadi besar bunga Rp43.800.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp219.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp43.800 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp43.800</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu hari diubah ke tahun: t = hari ÷ 365</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-BUNGA-T3-IS-02">
+    <h3>KU-BUNGA-T3-IS-02 <span class="label">Nomor kisi-kisi 17</span><span class="label">Menghitung besar bunga</span><span class="label">Sulit</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M3 · Konteks: bank desa</p>
+    <div class="kotak">Salsa menabung Rp1.460.000 di bank desa dengan suku bunga 5% per tahun. Berapa besar bunga yang Salsa peroleh setelah 292 hari?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.460.000; p = 5 (5% per tahun); lama = 292 hari</td></tr>
+      <tr><th>Ditanya</th><td>Besar bunga (B)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp58.400 <span class="ket">(diterima ±1 rupiah)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">Rp21.316.000</span> — Satuan waktu: Lama menabung dalam hari. Ubah dulu ke tahun: 292 hari = 292/365 tahun.</div><div><span class="salah">Rp5.840.000</span> — Persen tidak dibagi 100: Ingat, suku bunga 5% ditulis p/100 = 5/100 di dalam rumus.</div><div><span class="salah">Rp1.518.400</span> — Bunga dan tabungan akhir tertukar: Yang ditanya adalah besar bunga (B) saja. Jumlah tabungan akhir (A) = M + B, jadi bunganya jangan ditambah modal awal.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.460.000, suku bunga p = 5 (5% per tahun), lama menabung 292 hari. Ditanya: besar bunga (B).</li><li><strong>Rencanakan:</strong> Lama menabung dalam hari, jadi t = 292/365 tahun. Rumus: B = M × (p/100) × t.</li><li><strong>Hitung:</strong> B = 1.460.000 × (5/100) × (292/365) = 58.400. Jadi besar bunga Rp58.400.</li><li><strong>Periksa:</strong> Bunga 1 tahun = Rp73.000. Lama menabung kurang dari 1 tahun, jadi bunganya lebih kecil. Rp58.400 masuk akal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp58.400</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu hari diubah ke tahun: t = hari ÷ 365</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung besar bunga)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T3-IS-01">
+    <h3>KU-AKHIR-T3-IS-01 <span class="label">Nomor kisi-kisi 18</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Sulit</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: koperasi sekolah</p>
+    <div class="kotak">Tono menabung Rp1.825.000 di koperasi sekolah dengan suku bunga 6% per tahun. Berapa jumlah tabungan Tono setelah 219 hari?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp1.825.000; p = 6 (6% per tahun); lama = 219 hari</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp1.890.700 <span class="ket">(diterima ±1 rupiah)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">Rp25.805.500</span> — Satuan waktu: Lama menabung dalam hari. Ubah dulu ke tahun: 219 hari = 219/365 tahun.</div><div><span class="salah">Rp8.395.000</span> — Persen tidak dibagi 100: Ingat, suku bunga 6% ditulis p/100 = 6/100 di dalam rumus.</div><div><span class="salah">Rp65.700</span> — Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp1.825.000, suku bunga p = 6 (6% per tahun), lama menabung 219 hari. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Lama menabung dalam hari, jadi t = 219/365 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 1.825.000 × (6/100) × (219/365) = 65.700. A = 1.825.000 + 65.700 = 1.890.700. Jadi jumlah tabungan akhir Rp1.890.700.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp65.700 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp1.890.700</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu hari diubah ke tahun: t = hari ÷ 365</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-AKHIR-T3-IS-02">
+    <h3>KU-AKHIR-T3-IS-02 <span class="label">Nomor kisi-kisi 18</span><span class="label">Menghitung jumlah tabungan akhir</span><span class="label">Sulit</span><span class="label">Isian angka</span></h3>
+    <p class="ket">Sub-bab terkait: M4 · Konteks: bank</p>
+    <div class="kotak">Umi menabung Rp4.800.000 di bank dengan suku bunga 7,5% per tahun. Berapa jumlah tabungan Umi setelah 15 bulan?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp4.800.000; p = 7,5 (7,5% per tahun); lama = 15 bulan</td></tr>
+      <tr><th>Ditanya</th><td>Jumlah tabungan akhir (A)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp5.250.000 <span class="ket">(diterima ±1 rupiah)</span></td></tr>
+      
+      <tr><th>Jawaban salah yang dikenali</th><td><div><span class="salah">Rp10.200.000</span> — Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 15 bulan = 15/12 tahun.</div><div><span class="salah">Rp49.800.000</span> — Persen tidak dibagi 100: Ingat, suku bunga 7,5% ditulis p/100 = 7,5/100 di dalam rumus.</div><div><span class="salah">Rp450.000</span> — Bunga dan tabungan akhir tertukar: Yang ditanya adalah jumlah tabungan akhir (A), yaitu A = M + B.</div></td></tr>
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp4.800.000, suku bunga p = 7,5 (7,5% per tahun), lama menabung 15 bulan. Ditanya: jumlah tabungan akhir (A).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 15/12 tahun. Rumus: B = M × (p/100) × t, lalu A = M + B.</li><li><strong>Hitung:</strong> B = 4.800.000 × (7,5/100) × (15/12) = 450.000. A = 4.800.000 + 450.000 = 5.250.000. Jadi jumlah tabungan akhir Rp5.250.000.</li><li><strong>Periksa:</strong> Jumlah tabungan akhir lebih besar dari modal awal, dan A − M = Rp450.000 sama dengan besar bunga. Cocok.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp5.250.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menghitung jumlah tabungan akhir)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T3-PG-01">
+    <h3>KU-MODALP-T3-PG-01 <span class="label">Nomor kisi-kisi 19</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Sulit</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: bank desa</p>
+    <div class="kotak">Setelah menabung 9 bulan di bank desa dengan suku bunga 8% per tahun, jumlah tabungan Gita menjadi Rp3.180.000. Berapa modal awal Gita?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>p = 8 (8% per tahun); lama = 9 bulan; jumlah tabungan akhir (A) = Rp3.180.000</td></tr>
+      <tr><th>Ditanya</th><td>Modal awal (M)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp3.000.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp3.000.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: (p/100) × t = (8/100) × (9/12) = 0,06. M = 3.180.000 ÷ (1 + 0,06) = 3.000.000. Jadi modal awal Rp3.000.000.</td></tr><tr><td>o2</td><td>Rp53.000.000</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Pada soal, Rp3.180.000 adalah jumlah tabungan akhir (A), bukan besar bunga. Karena A = M + B, modal awal M = A ÷ (1 + (p/100) × t).</td></tr><tr><td>o3</td><td>Rp2.989.200</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Bunga dihitung dari modal awal, bukan dari jumlah tabungan akhir. Gunakan M = A ÷ (1 + (p/100) × t).</td></tr><tr><td>o4</td><td>Rp1.848.837</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 9 bulan = 9/12 tahun.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui suku bunga p = 8 (8% per tahun), lama menabung 9 bulan, jumlah tabungan akhir (A) = Rp3.180.000. Ditanya: modal awal (M).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 9/12 tahun. Rumus: M = A ÷ (1 + (p/100) × t).</li><li><strong>Hitung:</strong> (p/100) × t = (8/100) × (9/12) = 0,06. M = 3.180.000 ÷ (1 + 0,06) = 3.000.000. Jadi modal awal Rp3.000.000.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 3.000.000 × (8/100) × (9/12) = Rp180.000, dan M + B = Rp3.180.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp3.000.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-MODALP-T3-PG-02">
+    <h3>KU-MODALP-T3-PG-02 <span class="label">Nomor kisi-kisi 19</span><span class="label">Menentukan modal awal atau suku bunga</span><span class="label">Sulit</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M5 · Konteks: bank</p>
+    <div class="kotak">Hadi menabung Rp3.650.000 di bank. Setelah 73 hari, jumlah tabungannya menjadi Rp3.693.800. Berapa suku bunga per tahunnya?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp3.650.000; lama = 73 hari; jumlah tabungan akhir (A) = Rp3.693.800</td></tr>
+      <tr><th>Ditanya</th><td>Suku bunga per tahun (p)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">6% per tahun</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>0,06% per tahun</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Hasil baginya masih berupa pecahan. Kalikan dengan 100 agar menjadi persen: p = (B × 100) ÷ (M × t).</td></tr><tr><td>o2</td><td>6% per tahun</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 3.693.800 − 3.650.000 = 43.800. p = (43.800 × 100) ÷ (3.650.000 × (73/365)) = 6. Jadi suku bunganya 6% per tahun.</td></tr><tr><td>o3</td><td>0,02% per tahun</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam hari. Ubah dulu ke tahun: 73 hari = 73/365 tahun.</td></tr><tr><td>o4</td><td>1,2% per tahun</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari suku bunga, gunakan p = (B × 100) ÷ (M × t). Jangan lupa membagi dengan lama menabung.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp3.650.000, lama menabung 73 hari, jumlah tabungan akhir (A) = Rp3.693.800. Ditanya: suku bunga per tahun (p).</li><li><strong>Rencanakan:</strong> Lama menabung dalam hari, jadi t = 73/365 tahun. Rumus: B = A − M, lalu p = (B × 100) ÷ (M × t).</li><li><strong>Hitung:</strong> B = 3.693.800 − 3.650.000 = 43.800. p = (43.800 × 100) ÷ (3.650.000 × (73/365)) = 6. Jadi suku bunganya 6% per tahun.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 3.650.000 × (6/100) × (73/365) = Rp43.800. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 6% per tahun</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan persen</span> · <span class="ok">Satuan waktu hari diubah ke tahun: t = hari ÷ 365</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Yang ditanya sesuai kategori kisi-kisi (Menentukan modal awal atau suku bunga)</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-TERAP-T3-PG-01">
+    <h3>KU-TERAP-T3-PG-01 <span class="label">Nomor kisi-kisi 20</span><span class="label">Penerapan dalam masalah sehari-hari</span><span class="label">Sulit</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M6 · Konteks: bank</p>
+    <div class="kotak">Intan ingin membeli laptop seharga Rp7.446.000. Ia menabung Rp7.300.000 di bank dengan suku bunga 5% per tahun. Setelah berapa hari jumlah tabungannya tepat cukup untuk membeli laptop?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>M = Rp7.300.000; p = 5 (5% per tahun); jumlah tabungan akhir (A) = Rp7.446.000</td></tr>
+      <tr><th>Ditanya</th><td>Lama menabung (t), dalam hari</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">146 hari</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>0,4 hari</td><td class="salah">Pengecoh</td><td>Satuan waktu: Perhatikan satuan yang ditanya. Jawaban diminta dalam hari. Ubah hasil dalam tahun ke hari.</td></tr><tr><td>o2</td><td>1,46 hari</td><td class="salah">Pengecoh</td><td>Persen tidak dibagi 100: Ingat, suku bunga 5% ditulis p/100 = 5/100 di dalam rumus.</td></tr><tr><td>o3</td><td>146 hari</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: B = 7.446.000 − 7.300.000 = 146.000. t = (146.000 × 100) ÷ (7.300.000 × 5) = 0,4 tahun. Ubah ke hari: 0,4 × 365 = 146 hari. Jadi lama menabung 146 hari.</td></tr><tr><td>o4</td><td>912,5 hari</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Untuk mencari lama menabung, gunakan t = (B × 100) ÷ (M × p), jangan dibalik.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui modal awal M = Rp7.300.000, suku bunga p = 5 (5% per tahun), jumlah tabungan akhir (A) = Rp7.446.000. Ditanya: lama menabung (dalam hari).</li><li><strong>Rencanakan:</strong> Rumus: B = A − M, lalu t = (B × 100) ÷ (M × p).</li><li><strong>Hitung:</strong> B = 7.446.000 − 7.300.000 = 146.000. t = (146.000 × 100) ÷ (7.300.000 × 5) = 0,4 tahun. Ubah ke hari: 0,4 × 365 = 146 hari. Jadi lama menabung 146 hari.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 7.300.000 × (5/100) × (146/365) = Rp146.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: 146 hari</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 0,01 sesuai satuan hari</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div><div class="kartu soal" id="KU-TERAP-T3-PG-02">
+    <h3>KU-TERAP-T3-PG-02 <span class="label">Nomor kisi-kisi 20</span><span class="label">Penerapan dalam masalah sehari-hari</span><span class="label">Sulit</span><span class="label">Pilihan ganda</span></h3>
+    <p class="ket">Sub-bab terkait: M6 · Konteks: koperasi</p>
+    <div class="kotak">Joko ingin punya Rp2.725.000 untuk membeli sepeda motor listrik setelah menabung 18 bulan. Suku bunga di koperasi 6% per tahun. Berapa modal awal yang harus Joko tabung sekarang?</div>
+    <table>
+      <tr><th style="width:28%">Diketahui</th><td>p = 6 (6% per tahun); lama = 18 bulan; jumlah tabungan akhir (A) = Rp2.725.000</td></tr>
+      <tr><th>Ditanya</th><td>Modal awal (M)</td></tr>
+      <tr><th style="width:28%">Kunci jawaban</th><td class="kunci">Rp2.500.000</td></tr>
+      <tr><th>Opsi (urutan di bank; diacak per siswa saat kuis)</th><td><table>
+      <tr><th>Id</th><th>Opsi</th><th>Status</th><th>Alasan</th></tr>
+      <tr><td>o1</td><td>Rp30.277.778</td><td class="salah">Pengecoh</td><td>Bunga dan tabungan akhir tertukar: Pada soal, Rp2.725.000 adalah jumlah tabungan akhir (A), bukan besar bunga. Karena A = M + B, modal awal M = A ÷ (1 + (p/100) × t).</td></tr><tr><td>o2</td><td>Rp2.479.750</td><td class="salah">Pengecoh</td><td>Rumus invers salah susun: Bunga dihitung dari modal awal, bukan dari jumlah tabungan akhir. Gunakan M = A ÷ (1 + (p/100) × t).</td></tr><tr><td>o3</td><td>Rp1.310.096</td><td class="salah">Pengecoh</td><td>Satuan waktu: Lama menabung dalam bulan. Ubah dulu ke tahun: 18 bulan = 18/12 tahun.</td></tr><tr><td>o4</td><td>Rp2.500.000</td><td class="kunci">KUNCI</td><td>Hasil perhitungan yang benar: (p/100) × t = (6/100) × (18/12) = 0,09. M = 2.725.000 ÷ (1 + 0,09) = 2.500.000. Jadi modal awal Rp2.500.000.</td></tr></table></td></tr>
+      
+      <tr><th>Pembahasan (tampil setelah kuis dikumpulkan)</th><td><ol class="langkah"><li><strong>Pahami:</strong> Diketahui suku bunga p = 6 (6% per tahun), lama menabung 18 bulan, jumlah tabungan akhir (A) = Rp2.725.000. Ditanya: modal awal (M).</li><li><strong>Rencanakan:</strong> Lama menabung dalam bulan, jadi t = 18/12 tahun. Rumus: M = A ÷ (1 + (p/100) × t).</li><li><strong>Hitung:</strong> (p/100) × t = (6/100) × (18/12) = 0,09. M = 2.725.000 ÷ (1 + 0,09) = 2.500.000. Jadi modal awal Rp2.500.000.</li><li><strong>Periksa:</strong> Masukkan kembali: B = 2.500.000 × (6/100) × (18/12) = Rp225.000, dan M + B = Rp2.725.000. Sama dengan soal.</li></ol></td></tr>
+    </table>
+    <div class="cek">Pemeriksaan otomatis: <span class="ok">Kunci dihitung ulang dari data soal: Rp2.500.000</span> · <span class="ok">Kunci rapi (KF-19 G1) dan toleransi 1 sesuai satuan rupiah</span> · <span class="ok">Satuan waktu bulan diubah ke tahun: t = bulan ÷ 12</span> · <span class="ok">Langkah Hitung memuat kunci jawaban</span> · <span class="ok">Tepat satu opsi kunci = kunci jawaban</span> · <span class="ok">4 opsi berbeda (KF-18)</span></div>
+    <div class="periksa"><strong>Hasil pemeriksaan:</strong> ☐ Sesuai &nbsp; ☐ Perlu perbaikan &nbsp; ☐ Ganti soal<br>Catatan:<span class="garis"></span><span class="garis"></span></div>
+  </div>
+</div></body></html>

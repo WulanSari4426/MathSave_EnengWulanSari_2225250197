@@ -1,0 +1,11 @@
+﻿[functions.daftar-pertama]
+entrypoint = "./functions/daftar-pertama/index.js"
+
+[functions.masuk-kode]
+entrypoint = "./functions/masuk-kode/index.js"
+
+[functions.atur-pin-baru]
+entrypoint = "./functions/atur-pin-baru/index.js"
+
+[functions.tutor-ai]
+entrypoint = "./functions/tutor-ai/index.js"
