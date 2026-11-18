@@ -30,6 +30,7 @@ Dokumen ini mendefinisikan antarmuka antara frontend dan Supabase, serta fungsi 
 | `profil_penilai`, `ambil_antrean_penilaian`, `ambil_tahap_untuk_dinilai`, `simpan_nilai_manual` | RPC | F-12 (PT-03, PT-08, PT-14, PT-15) | **Penilai**: guru dan peneliti, tidak pernah siswa |
 | `koreksi_skor`, `cari_tahap_untuk_koreksi`, `riwayat_koreksi` | RPC | F-12 (PT-08, PT-16, PT-17) | **Peneliti** saja (PT-18) |
 | `masuk-penilai` | Edge Function | F-12 (PT-14, PT-20, PT-21, PT-22) | Penilai sebelum masuk (satu-satunya jalan login penilai) |
+| `tutor-ai` | Edge Function (HTTP POST) | F-13 | Siswa yang sudah masuk (token sesi). Dipanggil lewat `src/layanan/tutorAI.js`, bukan `api.js`, karena berupa Edge Function, bukan RPC (bagian 2f) |
 
 Ketentuan umum:
 
@@ -295,6 +296,150 @@ Skrip dijalankan di komputer peneliti dengan `node --env-file=.env …`, **hanya
 | `supabase/seed/buat-siswa.js <csv> --akun-lama-kode-siswa` | `daftar_kode_hash_siswa`, `tambah_siswa` (0004) | **Hanya akun lama.** Tanpa tanda itu, skrip berhenti sebelum membaca CSV atau terhubung ke Supabase. |
 
 ---
+
+## 2f. Edge Function `tutor-ai` (F-13)
+
+*Didokumentasikan 18 November 2026 dari kode yang sudah ada dan sudah ter-deploy* (dibuktikan oleh log `TUTOR_AI_BERHASIL` pada tanggal yang sama). Bagian ini tidak mengubah perilaku apa pun. Konteks pedagogis dan pemetaan RMT ada di PRD F-13 dan 3A.
+
+**Berkas**
+
+| Berkas | Peran |
+|---|---|
+| `supabase/functions/tutor-ai/index.js` | Pembungkus Deno: CORS, membaca *secret*, verifikasi siswa, `fetch` ke OpenRouter, log |
+| `supabase/functions/_bersama/tutorAI.js` | Logika murni (diuji Vitest): daftar model, `PROMPT_TUTOR`, validasi riwayat, badan permintaan, penafsiran respons, cadangan model, batas waktu |
+| `src/layanan/tutorAI.js` | `kirimPesanTutor(messages)` memakai `supabase.functions.invoke('tutor-ai')`; `pesanGalatTutor(kode)` |
+| `src/halaman/tutor.js` | Halaman `#/tutor`, riwayat di `localStorage` (`lanora-tutor-ai`) |
+| `src/komponen/isiTutor.js`, `src/logika/markdownTutor.js`, `src/logika/latexKeMathml.js` | Render jawaban (Markdown + MathML) tanpa HTML |
+| `tests/tutor/tutorAI.test.js`, `tests/tutor/tampilanTutor.test.js` | Tes Vitest |
+
+**Permintaan**
+
+`POST {SUPABASE_URL}/functions/v1/tutor-ai`
+
+Header (diisi otomatis oleh `supabase.functions.invoke`):
+- `Authorization: Bearer {access_token siswa}`
+- `apikey: {kunci publik}`
+- `Content-Type: application/json`
+
+Menurut konfigurasi di `supabase/config.toml`, `verify_jwt` bernilai `true`. Kunci ini tidak ditulis eksplisit; `config.toml` hanya mengatur `entrypoint`, sehingga nilai bawaan Supabase yang berlaku. Konfigurasi ini belum tentu sama dengan pengaturan yang dipakai saat deployment.
+
+```json
+{
+  "messages": [
+    { "role": "user", "content": "Bagaimana menghitung bunga 8 bulan?" },
+    { "role": "assistant", "content": "Coba sebutkan dulu apa saja yang diketahui." },
+    { "role": "user", "content": "M = 1.000.000, p = 6, lama 8 bulan" }
+  ]
+}
+```
+
+Aturan validasi (setelah verifikasi siswa):
+- `messages`: 1–12 item.
+- Setiap item `role` ∈ `user`/`assistant` dan `content` berupa teks tidak kosong, maksimal 2.000 karakter. Teks dirapikan dengan `trim()`.
+- Pesan terakhir harus dari `user`.
+- Peran `system` dari klien ditolak; prompt sistem hanya ditambahkan di server.
+
+**Alur server**
+
+1. `OPTIONS` → `200` (CORS). Metode selain `POST` → `405`.
+2. Membaca `SUPABASE_URL`, kunci publik (`SUPABASE_PUBLISHABLE_KEYS` lebih dulu, `SUPABASE_ANON_KEY` sebagai cadangan), dan `OPENROUTER_API_KEY`. Jika ada yang kosong → `500`, dan log hanya mencatat **nama** variabel.
+3. Token dari `Authorization`. Jika tidak ada → `401`.
+4. Verifikasi siswa: `auth.getUser(token)`, lalu RPC `ambil_profil` dengan token yang sama (identitas dari `auth.uid()`).
+5. Validasi riwayat.
+6. Semua model di daftar diperiksa `:free` dan diizinkan **sebelum** permintaan pertama.
+7. Memanggil OpenRouter secara berurutan (lihat di bawah).
+
+**Badan permintaan ke OpenRouter** (`https://openrouter.ai/api/v1/chat/completions`), satu model per permintaan:
+
+```json
+{
+  "model": "google/gemma-4-26b-a4b-it:free",
+  "messages": [{ "role": "system", "content": "<PROMPT_TUTOR>" }, "...riwayat siswa..."],
+  "temperature": 0.4,
+  "max_tokens": 1200,
+  "reasoning": { "enabled": false },
+  "provider": { "allow_fallbacks": false }
+}
+```
+
+| Urutan | `model` | `reasoning` |
+|---|---|---|
+| 1 | `google/gemma-4-26b-a4b-it:free` | `{ "enabled": false }` |
+| 2 | `nvidia/nemotron-3-ultra-550b-a55b:free` | `{ "effort": "none" }` |
+| 3 | `inclusionai/ling-3.2-flash:free` | `{ "enabled": false }` |
+
+Parameter `models` (cadangan otomatis milik OpenRouter) **tidak** dipakai.
+
+**Cadangan dan batas waktu** (konstanta di `_bersama/tutorAI.js`)
+
+| Konstanta | Nilai | Arti |
+|---|---|---|
+| `BATAS_WAKTU_TOTAL_MS` | 45.000 | Batas seluruh percobaan dan jeda |
+| `BATAS_PER_PERCOBAAN_MS` | 18.000 | Batas satu percobaan (`AbortSignal.timeout`) |
+| `SISA_MINIMAL_MS` | 5.000 | Percobaan berikutnya tidak dimulai jika sisa waktu kurang dari ini |
+| `MAKS_PUTARAN` | 2 | Putaran 1: ketiga model tanpa jeda. Putaran 2: hanya model yang terkena 429 |
+| `JEDA_BAWAAN_MS` | 1.000 | Jeda sebelum putaran 2 jika tidak ada `retry_after_seconds` |
+| `JEDA_MAKS_MS` | 3.000 | Jika `retry_after` lebih lama dari ini, putaran 2 dilewati |
+
+Bagaimana kegagalan ditangani:
+- **Pindah ke model berikutnya:** 429, 404, 5xx, waktu habis, dan jawaban kosong.
+- **Berhenti tanpa mencoba cadangan:** 401/402/403 (masalah kunci atau akun).
+- **Jika semua model gagal**, kode yang dikirim dipilih dengan urutan `TUTOR_AI_SIBUK` (jika ada 429), lalu `TUTOR_AI_LAMBAT`, lalu galat terakhir.
+- OpenRouter bisa membalas HTTP 200 yang berisi objek `error`; respons itu tetap diperlakukan sebagai galat.
+
+**Respons berhasil — `200`**
+
+```json
+{ "answer": "Teks jawaban (boleh berisi Markdown dan LaTeX)", "model": "nvidia/nemotron-3-ultra-550b-a55b:free" }
+```
+
+`model` berisi model yang benar-benar menjawab. Jawaban model tidak diubah server selain dirapikan dengan `trim()`.
+
+**Kode galat** (badan: `{ "kode_galat": "..." }`)
+
+| Status | `kode_galat` | Arti | Pesan untuk siswa (`pesanGalatTutor`) |
+|---|---|---|---|
+| 401 | `TIDAK_MASUK` | Tanpa token | "Sesimu sudah berakhir. Silakan masuk lagi." |
+| 401 | `SESI_TIDAK_VALID` | Token tidak sah | sama dengan di atas |
+| 403 | `AKSES_SISWA_DITOLAK` | Bukan siswa aktif (`ambil_profil` gagal) | "Tutor AI hanya untuk akun siswa." |
+| 400 | `RIWAYAT_TIDAK_VALID` | `messages` bukan larik, kosong, atau lebih dari 12 | "Percakapan terlalu panjang. Mulai percakapan baru, ya." |
+| 400 | `PESAN_TIDAK_VALID` | Peran/isi pesan tidak sah | "Pesanmu belum bisa dikirim. Coba tulis ulang." |
+| 400 | `PESAN_TERAKHIR_HARUS_DARI_SISWA` | Pesan terakhir bukan dari `user` | pesan bawaan |
+| 405 | `METODE_TIDAK_DIDUKUNG` | Bukan `POST` | — |
+| 429 | `TUTOR_AI_SIBUK` | Model gratis terkena batas laju (biasanya kapasitas bersama penyedia) | "Tutor AI sedang ramai. Tunggu sebentar, lalu coba lagi." |
+| 500 | `KONFIGURASI_SERVER_BELUM_LENGKAP` | *Secret* kosong, kunci OpenRouter ditolak (401/402/403), atau daftar model tidak sah | pesan bawaan |
+| 500 | `GALAT_SERVER` | Galat tak terduga | pesan bawaan |
+| 502 | `MODEL_TIDAK_TERSEDIA` | 404 dari OpenRouter (model hilang atau ditolak pengaturan privasi akun) | pesan bawaan |
+| 502 | `TUTOR_AI_SEDANG_TIDAK_TERSEDIA` | Galat penyedia lain | pesan bawaan |
+| 502 | `JAWABAN_AI_TIDAK_VALID` | Jawaban model kosong | pesan bawaan |
+| 504 | `TUTOR_AI_LAMBAT` | Waktu habis | "Tutor AI terlalu lama menjawab. Coba kirim lagi." |
+
+Pesan bawaan: "Maaf, Tutor AI belum bisa menjawab. Coba lagi nanti."
+
+Galat di sisi frontend (tanpa memanggil server):
+- `BELUM_TERHUBUNG`: `.env` belum diisi.
+- `GALAT_JARINGAN`: koneksi putus, termasuk `FunctionsFetchError`. Pesan: "Internet terputus. Periksa koneksimu, lalu coba lagi."
+
+Frontend membaca `kode_galat` dari badan respons non-2xx (`FunctionsHttpError.context`) dan menulis kode itu, **tanpa** isi pesan siswa, ke konsol peramban (`console.warn`).
+
+**Log server** (Supabase → Edge Functions → Logs)
+
+| Awalan | Isi |
+|---|---|
+| `TUTOR_AI_BERHASIL:` | `model=… percobaan=… putaran=… berhasil` |
+| `TUTOR_AI_MODEL:` | Kegagalan per model: `model=… percobaan=… putaran=… gagal=KODE`, ditambah `limit_source`, `provider_name`, `provider_error_code`, `retry_after_seconds` untuk 429, atau `finish_reason` untuk jawaban kosong |
+| `TUTOR_AI:` | Ringkasan saat semua model gagal (`Semua model gagal (N percobaan): …`) atau galat yang menghentikan percobaan |
+| `TUTOR_AI_AUTH:` / `TUTOR_AI_PROFIL:` | Kegagalan verifikasi sesi/profil (status dan pesan galat Auth/RPC) |
+| `TUTOR_AI_KONFIGURASI:` | Nama variabel yang kosong |
+| `TUTOR_AI_GALAT:` | Nama dan pesan galat tak terduga |
+
+Yang tidak pernah dicatat: isi pesan siswa, token, kunci API, `error.metadata.raw`, dan `user_id` OpenRouter.
+
+**Yang tidak dilakukan fungsi ini**
+- Tidak menyimpan percakapan di database; riwayat hanya ada di perangkat siswa.
+- Tidak menerima konteks soal, sub-bab, atau riwayat belajar.
+- Tidak menilai jawaban.
+- Tidak memakai model berbayar.
 
 ## 3. Fungsi RPC
 
@@ -696,6 +841,8 @@ Aktivitas latihan dikelompokkan per sub-bab dan tingkat dalam satu hari. Setiap 
 ### 3.11 `simpan_penjelasan(p_soal_id, p_isi)`
 
 `p_isi` maksimal 500 karakter. Hanya bisa disimpan untuk soal yang sudah pernah dijawab benar oleh siswa.
+
+> **Status (diperiksa 18 November 2026):** fungsi ini sudah ada di database (migrasi `…0003`), tetapi **belum dipanggil** dari frontend. Belum ada pembungkus di `src/layanan/api.js` maupun antarmuka F-11. Lihat PRD 3A.5 (RMT-R04).
 
 **Keluaran:** `{ "ok": true }`
 

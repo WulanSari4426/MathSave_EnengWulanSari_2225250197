@@ -18,6 +18,9 @@ dist/
 # Dokumen referensi dan data wawancara penelitian (AGENTS.md bagian 3): tetap di folder, tidak masuk Git
 referensi/
 
+# Rangkuman PDF teori RMT (bahan rujukan lokal, PRD bagian 3A): tidak masuk Git
+refrensi_rmt/
+
 # Kunci privat dan sertifikat
 *.pem
 *.key
